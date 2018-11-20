@@ -16,8 +16,9 @@ export class PlacesPage {
     this.places = new PlaceService().getPlaces(null);
   }
 
-  logIn() {
-    let profileModal = this.modalCtrl.create(PlacesModalPage);
+  openPlaceModal(place:Place) {
+    let data = { place: place };
+    let profileModal = this.modalCtrl.create(PlacesModalPage, data);
     profileModal.present();
     profileModal.onDidDismiss(data => {  
       console.log(data);

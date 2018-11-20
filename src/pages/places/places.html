@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let place of places" (click)="logIn()">
+  <ion-card *ngFor="let place of places" (click)="openPlaceModal(place)">
     <!-- <img src="img/nin-live.png"/> -->
     <ion-card-content>
       <ion-card-title>

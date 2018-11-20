@@ -8,6 +8,7 @@ import { PlacesPage } from '../pages/places/places';
 import { AboutPage } from '../pages/about/about';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { PlacesModalPage } from '../pages/places-modal/places-modal';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     HomePage,
     PlacesPage,
-    AboutPage
+    AboutPage,
+    PlacesModalPage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     HomePage,
     PlacesPage,
-    AboutPage
+    AboutPage,
+    PlacesModalPage
   ],
   providers: [
     StatusBar,

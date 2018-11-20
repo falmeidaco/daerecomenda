@@ -3,18 +3,21 @@ export class Place {
   id: number;
   name: string;
   description: string;
-  metadata: any;
+  location: any;
   categories: any[];
   tags: any[];
-
+  metadata: any;
+  
   constructor(content:any) {
-    if (typeof content === 'string') {
-      this.name = content;
-    } else {
-      this.name = content.name;
-      this.description = content.description;
-    }
+    this.id = content.id;
+    this.name  = content.name;
+    this.description = content.description;
+    this.location = content.location;
+    this.categories = content.categories;
+    this.tags = content.tags;
+    this.metadata = content.metadata;
   }
+  /*
 
   setCategories(categories: string[]) {
     this.categories = categories;
@@ -33,4 +36,5 @@ export class Place {
       return this.metadata[key];
     }
   }
+  */
 }

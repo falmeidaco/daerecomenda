@@ -1,11 +1,18 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Locais de Apoio</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-start>
+        <ion-icon name="star"></ion-icon>
+        Filtros (0)
+      </button>
+    </ion-buttons>
   </ion-navbar>
+  <ion-searchbar placeholder="Pesquise pelo nome do local"></ion-searchbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let place of places">
+  <ion-card *ngFor="let place of places" (click)="logIn()">
     <!-- <img src="img/nin-live.png"/> -->
     <ion-card-content>
       <ion-card-title>
@@ -14,6 +21,7 @@
       <p>
         {{place.description}}
       </p>
+      <p><ion-badge *ngFor="let category of place.categories">{{category}}</ion-badge> </p>
     </ion-card-content>
   </ion-card>
 </ion-content>

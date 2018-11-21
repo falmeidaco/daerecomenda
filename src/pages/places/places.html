@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar icon-start>
     <ion-title>Locais de Apoio</ion-title>
     <ion-buttons end>
       <button ion-button icon-start>
@@ -8,20 +8,26 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-  <ion-searchbar placeholder="Pesquise pelo nome do local"></ion-searchbar>
+  <ion-searchbar  [(ngModel)]="filter.search" (ionInput)="onSearchInput($event)" placeholder="Pesquise pelo nome do local"></ion-searchbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let place of places" (click)="openPlaceModal(place)">
-    <!-- <img src="img/nin-live.png"/> -->
-    <ion-card-content>
-      <ion-card-title>
-        {{place.name}}
-      </ion-card-title>
-      <p>
-        {{place.description}}
-      </p>
-      <p><ion-badge *ngFor="let category of place.categories">{{category}}</ion-badge> </p>
-    </ion-card-content>
-  </ion-card>
+  <header>
+      <p>Locais encontrados ({{places.length}})</p>
+  </header>
+  <main class="content-list">  
+    <ion-card *ngFor="let place of places" (click)="openPlaceModal(place)">
+      <img src="assets/imgs/default-place-image.png"/>
+      <ion-card-content>
+        <ion-card-title>{{place.name}}</ion-card-title>
+        <p>{{place.description}}</p>
+        <p><ion-icon name="map" small></ion-icon> 200 metros de você</p>
+        <p>
+          <span *ngFor="let category of place.categories">
+            <ion-badge>{{category}}</ion-badge>
+          </span>
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </main>
 </ion-content>

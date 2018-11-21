@@ -21,6 +21,10 @@ export class HomePage {
     }
   }
 
+  switchTab(tabIndex: number) {
+    this.navCtrl.parent.select(tabIndex);
+  }
+
   ngOnInit() {
   }
 

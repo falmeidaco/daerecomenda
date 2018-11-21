@@ -5,8 +5,18 @@ export class PlaceService {
   places: Place[];
   filter: any[];
 
-  getPlaces(filter:any): Place[] {
-    return this.places;
+  getPlaces(filter = {}): Place[] {
+    let places = this.places;
+    if (typeof filter === 'object') {
+      if (filter.hasOwnProperty('search')) {
+        if (filter['search'].trim() !== '') {
+          places = places.filter((value: Place) => {
+            return value.name.toLowerCase().search(filter['search'].toLowerCase()) > -1 || value.description.toLowerCase().search(filter['search'].toLowerCase()) > -1;
+          });
+        }
+      }
+    }
+    return places;
   }
 
   constructor() {

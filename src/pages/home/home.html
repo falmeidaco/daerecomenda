@@ -4,7 +4,7 @@
     <p>Como podemos te ajudar hoje?</p>
   </header>
 
-  <ion-card>
+  <ion-card (click)="switchTab(0)">
     <ion-card-header>
       <h2>Me ajude a encontrar um local de apoio</h2>
     </ion-card-header>
@@ -13,7 +13,7 @@
     </ion-card-content>
   </ion-card>
   
-  <ion-card>
+  <ion-card (click)="switchTab(1)">
     <ion-card-header>
       <h2>Mostrar locais de apoio</h2>
     </ion-card-header>
@@ -22,7 +22,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
+  <ion-card (click)="switchTab(2)">
     <ion-card-header>
       <h2>Conhecer a DAE</h2>
     </ion-card-header>

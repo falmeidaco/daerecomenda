@@ -11,9 +11,23 @@ import { PlaceService } from '../../providers/place-service/place-service';
 export class PlacesPage {
 
   places: Place[];
+  placesServiceInstance: PlaceService;
+  filter: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl:ModalController) {
-    this.places = new PlaceService().getPlaces(null);
+    // Filters
+    this.filter = {
+      search:'',
+      category:[],
+      tags:[]
+    };
+    this.placesServiceInstance = new PlaceService();
+    //First load place list with no filter
+    this.places = this.placesServiceInstance.getPlaces(this.filter);
+  }
+
+  onSearchInput(event: any) {
+    this.places = this.placesServiceInstance.getPlaces(this.filter);
   }
 
   openPlaceModal(place:Place) {

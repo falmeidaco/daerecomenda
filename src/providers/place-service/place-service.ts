@@ -23,10 +23,11 @@ export class PlaceService {
     this.places = [
       new Place({
         id: 1,
-        name:'Dae UFC',
+        name:'Divisão de Atendimento ao Aluno UFC',
         description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit turpis venenatis neque rutrum, luctus luctus lectus finibus. In vitae sodales nisi, vel pretium mi.',
+        image: 'assets/imgs/default-place-image.png',
         categories:['Psicológico', 'Psicosocial', 'Psicopedagógico'],
-        tags:['público','acessibiliade','plano de saúde','ong'],
+        tags:['público','acessibiliade','plano de saúde','ong', 'um'],
         location: {
           full_address:'Rua do Chico, 148 Meireles',
           zip:'000000-000',
@@ -56,8 +57,9 @@ export class PlaceService {
         id: 1,
         name:'Clínica Trajano Almeida',
         description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit turpis venenatis neque rutrum, luctus luctus lectus finibus. In vitae sodales nisi, vel pretium mi.',
+        image: null,
         categories:['Psicológico'],
-        tags:['público','acessibiliade','ong'],
+        tags:['público','acessibiliade','ong', 'dois'],
         location: {
           full_address:'Rua da Silva, 144 Aldeota',
           zip:'000000-000',
@@ -84,9 +86,10 @@ export class PlaceService {
         ]
       }),
       new Place({
-        id: 1,
-        name:'Dae UFC',
+        id: 3,
+        name:'Programa de Assuntos Estudantis - PRAE',
         description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit turpis venenatis neque rutrum, luctus luctus lectus finibus. In vitae sodales nisi, vel pretium mi.',
+        image: null,
         categories:['Psicológico', 'Psicosocial', 'Psicopedagógico'],
         tags:['público','acessibiliade','plano de saúde','ong'],
         location: {
@@ -115,9 +118,10 @@ export class PlaceService {
         ]
       }),
       new Place({
-        id: 1,
-        name:'Clínica Trajano Almeida',
+        id: 4,
+        name:'HapVida Antônio Sales',
         description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit turpis venenatis neque rutrum, luctus luctus lectus finibus. In vitae sodales nisi, vel pretium mi.',
+        image: null,
         categories:['Psicológico'],
         tags:['público','acessibiliade','ong'],
         location: {
@@ -147,5 +151,4 @@ export class PlaceService {
       })
     ];
   }
-
 }

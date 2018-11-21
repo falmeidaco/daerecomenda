@@ -2,9 +2,9 @@
   <ion-navbar icon-start>
     <ion-title>Locais de Apoio</ion-title>
     <ion-buttons end>
-      <button ion-button icon-start>
-        <ion-icon name="star"></ion-icon>
-        Filtros (0)
+      <button ion-button icon-start (click)="openFiltersModal()" color="primary">
+        <ion-icon name="pricetags"></ion-icon>
+        Filtros ({{filter.category.length + filter.tags.length}})
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -16,8 +16,9 @@
       <p>Locais encontrados ({{places.length}})</p>
   </header>
   <main class="content-list">  
+    
     <ion-card *ngFor="let place of places" (click)="openPlaceModal(place)">
-      <img src="assets/imgs/default-place-image.png"/>
+      <img src="{{place.image}}"/>
       <ion-card-content>
         <ion-card-title>{{place.name}}</ion-card-title>
         <p>{{place.description}}</p>
@@ -29,5 +30,6 @@
         </p>
       </ion-card-content>
     </ion-card>
+
   </main>
 </ion-content>

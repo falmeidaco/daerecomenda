@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController, NavParams } from 'ionic-angular';
 import { PlacesModalPage } from '../places-modal/places-modal';
+import { FiltersModalPage } from '../filters-modal/filters-modal';
 import { Place } from '../../providers/place-service/place';
 import { PlaceService } from '../../providers/place-service/place-service';
 
@@ -18,8 +19,8 @@ export class PlacesPage {
     // Filters
     this.filter = {
       search:'',
-      category:[],
-      tags:[]
+      category:['Psicossocial'],
+      tags:['Gratuito', 'Acessibilidade']
     };
     this.placesServiceInstance = new PlaceService();
     //First load place list with no filter
@@ -30,11 +31,20 @@ export class PlacesPage {
     this.places = this.placesServiceInstance.getPlaces(this.filter);
   }
 
+  openFiltersModal() {
+    let data = { filter: this.filter };
+    let modal = this.modalCtrl.create(FiltersModalPage, data);
+    modal.present();
+    modal.onDidDismiss(data => {  
+      console.log(data);
+    });
+  }
+
   openPlaceModal(place:Place) {
     let data = { place: place };
-    let profileModal = this.modalCtrl.create(PlacesModalPage, data);
-    profileModal.present();
-    profileModal.onDidDismiss(data => {  
+    let modal = this.modalCtrl.create(PlacesModalPage, data);
+    modal.present();
+    modal.onDidDismiss(data => {  
       console.log(data);
     });
   }

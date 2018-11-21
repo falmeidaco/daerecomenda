@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Filtar Locais</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-start (click)="closeModal()" color="danger">
+        <ion-icon name="close"></ion-icon>
+        Fechar
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      <h2>Categorias de serviço</h2>
+      <p>Escolha as categorias de serviços dos locais</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>Psicológico</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Psicopedagógico</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Psicossocial</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+
+    <ion-list-header>Características</ion-list-header>
+    <ion-item>
+      <ion-label>Atendimento gratuito</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Possui acessibilidade</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Estacionamento</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>
+  

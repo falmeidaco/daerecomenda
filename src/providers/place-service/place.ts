@@ -18,3 +18,21 @@ export class Place {
     this.metadata = content.metadata;
   }
 }
+
+export class PlaceCategory {
+  name: string;
+  label: string;
+  constructor(name:string, label:string) {
+    this.name = name;
+    this.label = label;
+  }
+}
+
+export class PlaceTag {
+  name: string;
+  label: string;
+  constructor(name:string, label:string) {
+    this.name = name;
+    this.label = label;
+  }
+}

@@ -1,9 +1,11 @@
-import { Place } from './place';
+import { Place, PlaceCategory, PlaceTag } from './place';
 
 export class PlaceService {
 
   places: Place[];
   filter: any[];
+  categories: any;
+  tags: any;
 
   getPlaces(filter = {}): Place[] {
     let places = this.places;
@@ -20,14 +22,33 @@ export class PlaceService {
   }
 
   constructor() {
+
+    //Categories
+    this.categories = {
+      psicologico: new PlaceCategory('psicologico', 'Psicológico'),
+      psicopedagogico: new PlaceCategory('psicopedagogico', 'Psicopedagógico'),
+      psicossocial: new PlaceCategory('psicossocial', 'Psicossocial')
+    }
+
+    this.tags = {
+      gratuito: new PlaceTag('gratuito', 'Serviço gratuito'),
+      pago: new PlaceTag('pago', 'Serviço pago'),
+      ligacaogratuita: new PlaceTag('ligacaogratuita', 'Número 0800'),
+      acessibilidade: new PlaceTag('acessibilidade', 'Possui acessibilidade'),
+      planohapvida: new PlaceTag('planohapvida', 'Plano Hapvida'),
+      planounimed: new PlaceTag('planounimed', 'Plano Unimed'),
+      aceitacartao: new PlaceTag('aceitacartao', 'Aceita cartão de crédito'),
+      estacionamento: new PlaceTag('estacionamento', 'Possui estacionamento')
+    }
+
     this.places = [
       new Place({
         id: 1,
         name:'Divisão de Atendimento ao Aluno UFC',
         description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit turpis venenatis neque rutrum, luctus luctus lectus finibus. In vitae sodales nisi, vel pretium mi.',
         image: 'assets/imgs/default-place-image.png',
-        categories:['Psicológico', 'Psicosocial', 'Psicopedagógico'],
-        tags:['público','acessibiliade','plano de saúde','ong', 'um'],
+        categories:[this.categories.psicologico, this.categories.psicopedagogico],
+        tags:[this.tags.gratuito, this.tags.ligacaogratuita, this.tags.estacionamento, this.tags.acessibilidade],
         location: {
           full_address:'Rua do Chico, 148 Meireles',
           zip:'000000-000',
@@ -41,15 +62,19 @@ export class PlaceService {
         metadata: [
           {
             name:'phone',
-            content: '88 8888-9999'
+            value: '88 8888-9999'
           },
           {
-            name:'Website',
-            contant: 'http://www.site.com'
+            name:'phone',
+            value: '85 77777-0001'
           },
           {
-            name:'E-mail',
-            content: 'email@email.com'
+            name:'website',
+            value: 'http://www.site.com'
+          },
+          {
+            name:'email',
+            value: 'email@email.com'
           }
         ]
       }),
@@ -57,9 +82,9 @@ export class PlaceService {
         id: 1,
         name:'Clínica Trajano Almeida',
         description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit turpis venenatis neque rutrum, luctus luctus lectus finibus. In vitae sodales nisi, vel pretium mi.',
-        image: null,
-        categories:['Psicológico'],
-        tags:['público','acessibiliade','ong', 'dois'],
+        image: 'assets/imgs/default-place-image.png',
+        categories:[this.categories.psicossocial],
+        tags:[this.tags.pago, this.tags.planounimed, this.tags.aceitacartao],
         location: {
           full_address:'Rua da Silva, 144 Aldeota',
           zip:'000000-000',
@@ -73,79 +98,15 @@ export class PlaceService {
         metadata: [
           {
             name:'phone',
-            content: '88 00000-9999'
+            value: '88 00000-9999'
           },
           {
             name:'website',
-            contant: 'http://www.website.com'
+            value: 'http://www.website.com'
           },
           {
             name:'email',
-            content: 'email@hotmail.com.com'
-          }
-        ]
-      }),
-      new Place({
-        id: 3,
-        name:'Programa de Assuntos Estudantis - PRAE',
-        description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit turpis venenatis neque rutrum, luctus luctus lectus finibus. In vitae sodales nisi, vel pretium mi.',
-        image: null,
-        categories:['Psicológico', 'Psicosocial', 'Psicopedagógico'],
-        tags:['público','acessibiliade','plano de saúde','ong'],
-        location: {
-          full_address:'Rua do Chico, 148 Meireles',
-          zip:'000000-000',
-          city:'Fortaleza',
-          state:'Ceará',
-          latlng: {
-            lat:0,
-            lng:0
-          }
-        },
-        metadata: [
-          {
-            name:'phone',
-            content: '88 8888-9999'
-          },
-          {
-            name:'Website',
-            contant: 'http://www.site.com'
-          },
-          {
-            name:'E-mail',
-            content: 'email@email.com'
-          }
-        ]
-      }),
-      new Place({
-        id: 4,
-        name:'HapVida Antônio Sales',
-        description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit turpis venenatis neque rutrum, luctus luctus lectus finibus. In vitae sodales nisi, vel pretium mi.',
-        image: null,
-        categories:['Psicológico'],
-        tags:['público','acessibiliade','ong'],
-        location: {
-          full_address:'Rua da Silva, 144 Aldeota',
-          zip:'000000-000',
-          city:'Fortaleza',
-          state:'Ceará',
-          latlng: {
-            lat:0,
-            lng:0
-          }
-        },
-        metadata: [
-          {
-            name:'phone',
-            content: '88 00000-9999'
-          },
-          {
-            name:'website',
-            contant: 'http://www.website.com'
-          },
-          {
-            name:'email',
-            content: 'email@hotmail.com.com'
+            value: 'email@hotmail.com.com'
           }
         ]
       })

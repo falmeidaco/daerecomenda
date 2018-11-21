@@ -25,7 +25,7 @@
         <p><ion-icon name="map" small></ion-icon> 200 metros de você</p>
         <p>
           <span *ngFor="let category of place.categories">
-            <ion-badge>{{category}}</ion-badge>
+            <ion-badge>{{category.label}}</ion-badge>
           </span>
         </p>
       </ion-card-content>

@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-
-/**
- * Generated class for the FiltersModalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { PlaceService } from '../../providers/place-service/place-service';
+import { Place, PlaceCategory, PlaceTag } from '../../providers/place-service/place';
 
 @IonicPage()
 @Component({
@@ -16,9 +11,13 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 export class FiltersModalPage {
 
   filter: any;
+  categories: PlaceCategory[];
+  tags: PlaceTag[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
-    this.filter = navParams.get('filte');
+    this.filter = navParams.get('filter');
+    this.categories = navParams.get('PSInstance').categories;
+    console.log(this.filter, this.categories);
   }
 
   changeFilter(category: string, value: string, remove:boolean) {

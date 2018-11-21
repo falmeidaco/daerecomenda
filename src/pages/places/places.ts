@@ -32,7 +32,7 @@ export class PlacesPage {
   }
 
   openFiltersModal() {
-    let data = { filter: this.filter };
+    let data = { filter: this.filter, PSInstance: this.placesServiceInstance };
     let modal = this.modalCtrl.create(FiltersModalPage, data);
     modal.present();
     modal.onDidDismiss(data => {  

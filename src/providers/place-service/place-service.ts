@@ -66,7 +66,7 @@ export class PlaceService {
         id: 1,
         name:'Nami/Unifor',
         description:'O Serviço de Psicologia Aplicada presta atendimentos na área de psicologia em suas diversas subespecialidades, como plantão psicológico, psicoterapia com atendimentos individuais, em grupo e familiares. O encaminhamento é feito a partir de regulação da Secretaria Municipal de Saúde de Fortaleza por meio dos Centros de Atenção Psicossocial (CAPS). Nesse setor há também a possibilidade de atendimentos privados por meio de consultas particulares ou por alguns convênios de saúde.',
-        image: 'https://www.unifor.br/documents/20143/524948/galeria-nami-foto-1.jpg/1fc42e6d-d3c6-fb95-9eef-39e3f579ab8d?t=1515614660745',
+        image: 'assets/imgs/unifor.jpg',
         categories:[
           this.categories.psicologico.name,
           this.categories.psicopedagogico.name,
@@ -160,7 +160,7 @@ export class PlaceService {
         id: 1,
         name:'NIS - UniFanor Wyden',
         description:'O Núcleo Integrado de Saúde (NIS) promove a interdisciplinaridade por meio do UniFanor, juntamente às outras colaborações acadêmicas do grupo Adtalem Global Education, como Ross School of Medicine, Ross School de Veterinary e Chamberlain School of Nursing, centrando a saúde como um substancial valor humano, bem como em todos os âmbitos socioeconômicos e culturais. O NIS promove a saúde em locais com recursos limitados, incentivando o compromisso dos estudantes, professores e parceiros de diversas disciplinas para tratar as doenças mais presentes nas comunidades.',
-        image: 'assets/imgs/default-place-image.png',
+        image: 'assets/imgs/unifanor.jpg',
         categories:[
           this.categories.psicologico.name,
           this.categories.psicopedagogico.name,
@@ -205,7 +205,7 @@ export class PlaceService {
         id: 1,
         name:'Faculdade Maurício de Nassau',
         description:'Os serviços de psicologia encontrados na instituição são direcionados aos mais diversos perfis; da criança ao adulto idoso, pertencentes a todas as camadas sociais. O atendimento individual, tanto infantil quanto adulto, acontece dentro das perspectivas desejadas pelo conselho de psicologia da região, bem como os atendimentos em grupo que são inteiramente gratuitos. Serviços da clínica-escola: Plantão Psicológico (Gratuito); Psicoterapia - Abordagens: Psicanalítica, Analítica Junguiana, Gestalt-Terapia, Abordagem Centrada na Pessoa, Terapia Cognitivo Comportamental e Fenomenologia Existencial. (Taxa Social); Orientação Profissional (Gratuito); Psicodiagnóstico (Avaliação Psicológica) - taxa social.',
-        image: 'assets/imgs/default-place-image.png',
+        image: 'assets/imgs/nassau.jpg',
         categories:[
           this.categories.psicologico.name,
           this.categories.psicopedagogico.name,
@@ -249,8 +249,8 @@ export class PlaceService {
       new Place({
         id: 1,
         name:'UECE',
-        description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit turpis venenatis neque rutrum, luctus luctus lectus finibus. In vitae sodales nisi, vel pretium mi.',
-        image: 'assets/imgs/default-place-image.png',
+        description:'Universidade Estadual do Ceará UECE Lema Lumen ad viam (Luz para o seu caminho) Fundação 5 de março de 1975 (43 anos) Tipo de instituição Pública Estadual Localização Fortaleza, Ceará Reitor(a) José Jackson Coelho Sampaio Vice-reitor(a) Hidelbrando dos Santos Soares Docentes 1.094 (2016) Total de estudantes 18.703 (2016) Graduação 16.975 (2016) Pós-graduação 1.728 (2016) Campus 10 Afiliações CRUB, RENEX e ABRUEM Índice Geral de Cursos 3 Orçamento anual 227.335.201,80 (2016) Página oficial http://www.uece.br A Universidade Estadual do Ceará (UECE) é uma universidade pública brasileira, com atuação em ensino, pesquisa e extensão, mantida pela Fundação Universidade Estadual do Ceará (FUNECE). A instituição é uma das três universidades mantidas pelo governo do estado do Ceará, ao lado da Universidade Estadual Vale do Acaraú (UEVA) e da Universidade Regional do Cariri (URCA).',
+        image: 'assets/imgs/uece.jpg',
         categories:[
           this.categories.psicologico.name,
           this.categories.psicopedagogico.name,
@@ -258,12 +258,7 @@ export class PlaceService {
         ],
         tags:[
           this.tags.gratuito.name, 
-          this.tags.pago.name, 
-          this.tags.ligacaogratuita.name, 
           this.tags.acessibilidade.name, 
-          this.tags.planohapvida.name, 
-          this.tags.aceitacartao.name, 
-          this.tags.planounimed.name,
           this.tags.estacionamento.name
         ],
         location: {
@@ -295,7 +290,7 @@ export class PlaceService {
         id: 1,
         name:'Unichristus',
         description:'A Clínica Escola de Saúde (CES) do Centro Universitário Christus integra o programa de responsabilidade social da Instituição. Realiza atendimentos gratuitos, em múltiplas especialidades, de forma integrada, humanizada e de qualidade para o cuidado, ensino e pesquisa junto à comunidade da cidade de Fortaleza e circum-adjacências. Desenvolve o Programa Serviço de Atenção Especializada (SAE) em IST/AIDS, em parceria com o Sistema Único de Saúde (SUS). A equipe de profissionais da CES tem como valores o comprometimento, o respeito, a ética e o profissionalismo para desenvolver um atendimento primoroso e eficaz, junto aos usuários de saúde, os alunos dos cursos da área da saúde e seus respectivos preceptores.',
-        image: 'assets/imgs/default-place-image.png',
+        image: 'assets/imgs/unichristus.jpg',
         categories:[
           this.categories.psicologico.name,
           this.categories.psicopedagogico.name,
@@ -303,12 +298,7 @@ export class PlaceService {
         ],
         tags:[
           this.tags.gratuito.name, 
-          this.tags.pago.name, 
-          this.tags.ligacaogratuita.name, 
           this.tags.acessibilidade.name, 
-          this.tags.planohapvida.name, 
-          this.tags.aceitacartao.name, 
-          this.tags.planounimed.name,
           this.tags.estacionamento.name
         ],
         location: {
@@ -340,7 +330,7 @@ export class PlaceService {
         id: 1,
         name:'Instituto Raízes',
         description:'Realiza-se atendimento clínico no segmento particular e social, sendo preciso que a sessão seja previamente agendada. Ambos os serviços são constituídos por um padrão de excelência, no que se refere ao acolhimento dos profissionais e da infra-estrutura utilizada. O atendimento clínico social é um trabalho que tem a finalidade de tornar os serviços da psicologia, acessíveis à todos os públicos. Sendo os valores determinados, conforme a análise da condição sócio-econômica. Para participar do projeto, o interessado deverá comprovar que corresponde ao perfil solicitado.',
-        image: 'http://www.raizesefac.com.br/wp-content/uploads/2018/09/raizes.jpg',
+        image: 'assets/imgs/raizes.jpg',
         categories:[
           this.categories.psicologico.name,
           this.categories.psicopedagogico.name,
@@ -349,7 +339,6 @@ export class PlaceService {
         tags:[
           this.tags.gratuito.name, 
           this.tags.pago.name, 
-          this.tags.ligacaogratuita.name, 
           this.tags.acessibilidade.name, 
           this.tags.planohapvida.name, 
           this.tags.aceitacartao.name, 
@@ -389,21 +378,15 @@ export class PlaceService {
         id: 1,
         name:'Instituto Roda Viva',
         description:'O Instituto Roda da Vida surgiu da necessidade de oferecer para pacientes oncológicos o acesso a práticas integrativas e complementares por entendermos que precisamos cuidar da "PESSOA" ao invés de cuidar da doença. A médica onco-hematologista Paola Tôrres Costa, que hoje é FELLOW em Medicina Integrativa pela Universidade do Arizona (EUA) e um grupo de profissionais das mais diversas áreas (psicológos, educadores, professores de educação física, fisioterapeutas, terapeutas holísticos, entre outros) e pacientes oncológicos se reuniram em 2011 e criaram uma associação sem fins lucrativos a qual chamaram "Instituto Roda da Vida". A idéia do nome veio do próprio ciclo constante de mudanças pelas quais passam os pacientes oncológicos e os desafios que significa estar com câncer. Ao mesmo tempo nos faz refletir sobre a transitoriedade de todos os processos vitais, com os quais devemos estar conectados para podermos obter qualidade de vida e saúde.',
-        image: 'https://static.wixstatic.com/media/69a216_e8f2895e13104f69ae6bc7c9d8d01ffd.jpg/v1/fill/w_342,h_161,al_c,q_80,usm_0.66_1.00_0.01/69a216_e8f2895e13104f69ae6bc7c9d8d01ffd.jpg',
+        image: 'assets/imgs/rodaviva.jpg',
         categories:[
           this.categories.psicologico.name,
           this.categories.psicopedagogico.name,
-          this.categories.psicossocial.name
         ],
         tags:[
           this.tags.gratuito.name, 
-          this.tags.pago.name, 
-          this.tags.ligacaogratuita.name, 
           this.tags.acessibilidade.name, 
-          this.tags.planohapvida.name, 
-          this.tags.aceitacartao.name, 
-          this.tags.planounimed.name,
-          this.tags.estacionamento.name
+          this.tags.planohapvida.name
         ],
         location: {
           full_address:'Rua Lauro Maia, 1245 Bairro de Fátima',
@@ -427,6 +410,42 @@ export class PlaceService {
           {
             name:'email',
             value: 'contato@institutorodadavida.org.br'
+          }
+        ]
+      }),
+      new Place({
+        id: 1,
+        name:'CAPS Fortaleza',
+        description:'A Rede de Atenção Psicossocial do Município de Fortaleza dispõe de 15 Centros, sendo seis CAPS GERAL, sete CAPS AD – Álcool e Drogas e dois CAPS Infantis. O perfil de atendimento são pessoas que apresentam sofrimentos psíquicos e/ou transtornos mentais severos e persistentes além de dependentes químicos. Nesses casos, o cuidado é partilhado com a Atenção Primária e com os recursos comunitários do território.',
+        image: 'assets/imgs/caps.jpg',
+        categories:[
+          this.categories.psicologico.name,
+          this.categories.psicopedagogico.name,
+          this.categories.psicossocial.name
+        ],
+        tags:[
+          this.tags.gratuito.name, 
+          this.tags.acessibilidade.name, 
+          this.tags.estacionamento.name
+        ],
+        location: {
+          full_address:'Rua Pinto Madeira , 1550',
+          zip:'000000-000',
+          city:'Fortaleza',
+          state:'Ceará',
+          latlng: {
+            lat:0,
+            lng:0
+          }
+        },
+        metadata: [
+          {
+            name:'phone',
+            value: '85 3281-2012'
+          },
+          {
+            name:'website',
+            value: 'https://catalogodeservicos.fortaleza.ce.gov.br/categoria/saude/servico/321'
           }
         ]
       })

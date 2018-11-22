@@ -20,16 +20,16 @@
   <div>
     <h3>Serviços</h3>
     <p>
-      <span *ngFor="let category of place.categories">
+      <span *ngFor="let category of place.categories" class="ion-badge-list">
         <ion-badge>{{categories[category].label | uppercase}}</ion-badge>
       </span>
     </p>
   </div>
   <div>
-    <h4>Características do local</h4>
+    <h3>Características do local</h3>
     <p>
-      <span *ngFor="let tag of place.tags">
-        <ion-badge>{{tags[tag].label | uppercase}}</ion-badge>
+      <span *ngFor="let tag of place.tags" class="ion-badge-list">
+        <ion-badge color="light">{{tags[tag].label | uppercase}}</ion-badge>
       </span>
     </p>
   </div>

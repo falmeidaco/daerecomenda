@@ -16,34 +16,22 @@
       <h2>Categorias de serviço</h2>
       <p>Escolha as categorias de serviços que deseja</p>
     </ion-item>
-    <ion-item>
-      <ion-label>Psicológico</ion-label>
-      <ion-toggle checked="false"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Psicopedagógico</ion-label>
-      <ion-toggle checked="false"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Psicossocial</ion-label>
-      <ion-toggle checked="false"></ion-toggle>
+    <ion-item *ngFor="let category of categories_array">
+      <ion-label>{{category.label}}</ion-label>
+      <ion-toggle (ionChange)="changeFilter($event, 'category', category.name)" checked="{{isCategoryEnabled(category.name)}}"></ion-toggle>
     </ion-item>
 
     <ion-item>
       <h2>Características dos locais</h2>
       <p>Escolha as características dos locais indicados</p>
     </ion-item>
-    <ion-item>
-      <ion-label>Atendimento gratuito</ion-label>
-      <ion-toggle checked="false"></ion-toggle>
+    <ion-item *ngFor="let tag of tags_array">
+      <ion-label>{{tag.label}}</ion-label>
+      <ion-toggle (ionChange)="changeFilter($event, 'tag', tag.name)" checked="{{isTagEnabled(tag.name)}}"></ion-toggle>
     </ion-item>
+
     <ion-item>
-      <ion-label>Possui acessibilidade</ion-label>
-      <ion-toggle checked="false"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Estacionamento</ion-label>
-      <ion-toggle checked="false"></ion-toggle>
+      <button ion-button block large (click)="closeModal()">Salvar Filtros</button>
     </ion-item>
   </ion-list>
 </ion-content>

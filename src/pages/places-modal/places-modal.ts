@@ -17,7 +17,6 @@ export class PlacesModalPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
     this.place = navParams.get('place');
     for (let i = 0; i < this.place.metadata.length; i = i + 1) {
-      console.log(this.place.metadata[i]);
       if (this.place.metadata[i].name === 'phone')  {
         this.phones.push(this.place.metadata[i]);
       } else if (this.place.metadata[i].name === 'email') {
@@ -26,9 +25,6 @@ export class PlacesModalPage {
         this.websites.push(this.place.metadata[i]);
       }
     }
-    console.log(this.phones);
-    console.log(this.websites);
-    console.log(this.emails);
   }
 
   closeModal(){
@@ -36,7 +32,6 @@ export class PlacesModalPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PlacesModalPage');
   }
 
 }

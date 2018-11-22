@@ -16,13 +16,16 @@ export class PlacesPage {
   filter: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl:ModalController) {
+    this.placesServiceInstance = new PlaceService();
     // Filters
     this.filter = {
       search:'',
-      category:['Psicossocial'],
-      tags:['Gratuito', 'Acessibilidade']
+      c:[
+        this.placesServiceInstance.categories.psicologico.name
+      ],
+      t:[]
     };
-    this.placesServiceInstance = new PlaceService();
+    console.log(this.filter);
     //First load place list with no filter
     this.places = this.placesServiceInstance.getPlaces(this.filter);
   }
@@ -32,10 +35,14 @@ export class PlacesPage {
   }
 
   openFiltersModal() {
-    let data = { filter: this.filter, PSInstance: this.placesServiceInstance };
+    let data = { 
+      filter: this.filter, 
+      categories: this.placesServiceInstance.categories,
+      tags: this.placesServiceInstance.tags
+    };
     let modal = this.modalCtrl.create(FiltersModalPage, data);
     modal.present();
-    modal.onDidDismiss(data => {  
+    modal.onDidDismiss(data => {
       console.log(data);
     });
   }
@@ -45,7 +52,6 @@ export class PlacesPage {
     let modal = this.modalCtrl.create(PlacesModalPage, data);
     modal.present();
     modal.onDidDismiss(data => {  
-      console.log(data);
     });
   }
 
@@ -53,7 +59,6 @@ export class PlacesPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PlacesPage');
   }
 
 }

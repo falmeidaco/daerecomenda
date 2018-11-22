@@ -14,3 +14,41 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-style: normal;
+    src: url('../assets/fonts/montserrat/ttf/Montserrat-Bold.ttf');
+}
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-style: normal;
+    src: url('../assets/fonts/montserrat/ttf/Montserrat-Regular.ttf');
+}
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 300;
+    font-style: normal;
+    src: url('../assets/fonts/montserrat/ttf/Montserrat-Light.ttf');
+}
+
+h1, h2, h3, h4, h5, h5 {
+    font-weight: 600;
+}
+
+page-places, page-about, page-places-modal {
+    h1, h2, h3 {
+        font-weight: 400;
+    }
+    .ion-badge-list {
+        line-height: 2em;
+        ion-badge {
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 400;
+            padding: .6em 1em;
+        }
+    }
+}

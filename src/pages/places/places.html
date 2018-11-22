@@ -3,12 +3,12 @@
     <ion-title>Locais de Apoio</ion-title>
     <ion-buttons end>
       <button ion-button icon-start (click)="openFiltersModal()" color="primary">
-        <ion-icon name="pricetags"></ion-icon>
+        <ion-icon name="list-box"></ion-icon>
         Filtros ({{filter.c.length + filter.t.length}})
       </button>
     </ion-buttons>
   </ion-navbar>
-  <ion-searchbar  [(ngModel)]="filter.search" (ionInput)="onSearchInput($event)" placeholder="Pesquise pelo nome do local"></ion-searchbar>
+  <ion-searchbar [(ngModel)]="filter.search" (ionInput)="onSearchInput($event)" placeholder="Pesquise pelo nome ou descrição do local"></ion-searchbar>
 </ion-header>
 
 <ion-content padding>
@@ -22,14 +22,30 @@
       <ion-card-content>
         <ion-card-title>{{place.name}}</ion-card-title>
         <p>{{place.description}}</p>
-        <p><ion-icon name="map" small></ion-icon> 200 metros de você</p>
+        <h2>Serviços</h2>
         <p>
-          <span *ngFor="let category of place.categories">
-            <ion-badge>{{category.label}}</ion-badge>
+          <span *ngFor="let category of place.categories" class="ion-badge-list">
+            <ion-badge>{{placesServiceInstance.categories[category].label | uppercase}}</ion-badge>
           </span>
         </p>
       </ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-7>
+            <ion-item>
+              <ion-note>
+                  <ion-icon name="pin" small></ion-icon> 200 metros de você
+              </ion-note>
+            </ion-item>
+          </ion-col>
+          <ion-col col-5>
+            <button ion-button icon-end clear small block>
+              <div>Saiba mais</div>
+              <ion-icon name="arrow-round-forward"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card>
-
   </main>
 </ion-content>

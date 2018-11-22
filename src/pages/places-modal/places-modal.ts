@@ -9,13 +9,17 @@ import { Place } from '../../providers/place-service/place';
 })
 export class PlacesModalPage {
 
-  place:Place;
+  place: Place;
+  categories: any;
+  tags: any;
   phones: any[] = new Array<any>();
   websites: any[] = new Array<any>();
   emails: any[] = new Array<any>();
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
     this.place = navParams.get('place');
+    this.categories = navParams.get('categories');
+    this.tags = navParams.get('tags');
     for (let i = 0; i < this.place.metadata.length; i = i + 1) {
       if (this.place.metadata[i].name === 'phone')  {
         this.phones.push(this.place.metadata[i]);

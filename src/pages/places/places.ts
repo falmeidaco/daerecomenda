@@ -25,7 +25,6 @@ export class PlacesPage {
       ],
       t:[]
     };
-    console.log(this.filter);
     //First load place list with no filter
     this.places = this.placesServiceInstance.getPlaces(this.filter);
   }
@@ -43,12 +42,16 @@ export class PlacesPage {
     let modal = this.modalCtrl.create(FiltersModalPage, data);
     modal.present();
     modal.onDidDismiss(data => {
-      console.log(data);
+      this.places = this.placesServiceInstance.getPlaces(data);
     });
   }
 
   openPlaceModal(place:Place) {
-    let data = { place: place };
+    let data = { 
+      place: place,
+      categories: this.placesServiceInstance.categories,
+      tags: this.placesServiceInstance.tags
+    };
     let modal = this.modalCtrl.create(PlacesModalPage, data);
     modal.present();
     modal.onDidDismiss(data => {  

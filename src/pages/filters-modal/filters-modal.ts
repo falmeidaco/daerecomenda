@@ -13,7 +13,7 @@ export class FiltersModalPage {
   categories: any;
   categories_array: PlaceCategory[] = new Array<PlaceCategory>();
   tags: any;
-  tags_array: PlaceTag[] = new Array<PlaceTag>();;
+  tags_array: PlaceTag[] = new Array<PlaceTag>();
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
     this.filter = navParams.get('filter');

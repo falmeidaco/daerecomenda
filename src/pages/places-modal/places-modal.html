@@ -37,6 +37,12 @@
   </div>
   <div class="metatag-list">
     <ion-list>
+      <ion-item>
+        <ion-icon name="map" item-start></ion-icon>
+        <h2>Endereço</h2>
+        <h3>{{place.location.full_address}}</h3>
+        <button ion-button clear item-end>Mapa</button>
+      </ion-item>
       <ion-item *ngFor="let phone of phones">
         <ion-icon name="call" item-start></ion-icon>
         <h2>Telefone</h2>

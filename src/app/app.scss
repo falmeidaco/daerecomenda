@@ -154,6 +154,14 @@ page-filters-modal {
             }
         }
     }
+    ion-content {
+        h2 {
+            text-transform: uppercase;
+            font-weight: 800 !important;
+            font-size: 0.8em !important;
+            margin-bottom: 0.4em !important;
+        }
+    }
 }
 
 page-places-modal {

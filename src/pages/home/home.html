@@ -1,34 +1,42 @@
 <ion-content>
+
   <header>
-    <h1>Olá, {{period}}!</h1>
-    <p>Como podemos te ajudar hoje?</p>
+    <img src="assets/imgs/logo-dae-recomenda.png"/>
+    <div class="text-welcome">
+      <h1>Olá, {{period}}!</h1>
+      <p>Como podemos te ajudar hoje?</p>
+    </div>
   </header>
-
-  <ion-card (click)="switchTab(1)">
-    <ion-card-header>
-      <h2>Me ajude a encontrar um local de apoio</h2>
-    </ion-card-header>
-    <ion-card-content>
-      Respondendo a algumas perguntas, vamos poder recomendar o lugar mais apropriado
-    </ion-card-content>
-  </ion-card>
   
-  <ion-card (click)="switchTab(1)">
-    <ion-card-header>
-      <h2>Mostrar locais de apoio</h2>
-    </ion-card-header>
-    <ion-card-content>
-      Encontre locais de apoio utilizando filtros de pesquisa
-    </ion-card-content>
-  </ion-card>
+  <ion-list>
+    
+    <ion-card (click)="switchTab(1)">
+      <ion-card-content>
+        <h2>Me ajude a encontrar um local de apoio</h2>
+        <p>
+          Respondendo a algumas perguntas, vamos poder recomendar o lugar mais apropriado
+        </p>
+      </ion-card-content>
+    </ion-card>
 
-  <ion-card (click)="switchTab(2)">
-    <ion-card-header>
-      <h2>Conhecer a DAE</h2>
-    </ion-card-header>
-    <ion-card-content>
-      Saiba mais informações sobre a Divisão de Atenção ao Estudante, a DAE
-    </ion-card-content>
-  </ion-card>
+    <ion-card (click)="switchTab(1)">
+      <ion-card-content>
+        <h2>Mostrar locais de apoio</h2>
+        <p>
+          Encontre locais de apoio utilizando filtros de pesquisa
+        </p>
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card (click)="switchTab(2)">
+      <ion-card-content>
+        <h2>Conhecer a DAE</h2>
+        <p>
+          Saiba mais informações sobre a Divisão de Atenção ao Estudante, a DAE
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
 
 </ion-content>

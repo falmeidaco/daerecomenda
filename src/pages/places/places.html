@@ -4,7 +4,7 @@
     <ion-buttons end>
       <button ion-button icon-start (click)="openFiltersModal()" color="primary">
         <ion-icon name="list-box"></ion-icon>
-        Filtros ({{filter.c.length + filter.t.length}})
+        Filtros
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -12,40 +12,39 @@
 </ion-header>
 
 <ion-content padding>
+  
   <header>
       <p>Locais encontrados ({{places.length}})</p>
   </header>
+
   <main class="content-list">  
-    
     <ion-card *ngFor="let place of places" (click)="openPlaceModal(place)">
       <img src="{{place.image}}"/>
       <ion-card-content>
-        <ion-card-title>{{place.name}}</ion-card-title>
-        <p>{{place.description}}</p>
-        <h2>Serviços</h2>
-        <p>
-          <span *ngFor="let category of place.categories" class="ion-badge-list">
-            <ion-badge>{{placesServiceInstance.categories[category].label | uppercase}}</ion-badge>
-          </span>
-        </p>
-      </ion-card-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-7>
-            <ion-item>
-              <ion-note>
-                  <ion-icon name="pin" small></ion-icon> 200 metros de você
-              </ion-note>
-            </ion-item>
-          </ion-col>
-          <ion-col col-5>
-            <button ion-button icon-end clear small block>
-              <div>Saiba mais</div>
-              <ion-icon name="arrow-round-forward"></ion-icon>
-            </button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+        <div class="block-content content-title">
+          <ion-card-title>{{place.name}}</ion-card-title>
+          <p>
+            <ion-note>
+              <ion-icon name="pin" small></ion-icon> 200 metros de você
+            </ion-note>
+          </p>
+          <p>{{place.description | slice:0:255}}...</p>
+        </div>
+        <div class="block-content content-distance">
+          
+        </div>
+        <div class="block-content content-categories">
+            <div>
+              <span *ngFor="let category of place.categories" class="ion-badge-list">
+                <ion-badge>{{placesServiceInstance.categories[category].label | uppercase}}</ion-badge>
+              </span>
+            </div>
+        </div>
+        <button ion-button icon-end outline block color="primary">
+          <div>Saiba mais</div>
+          <ion-icon name="arrow-round-forward"></ion-icon>
+        </button>
+      </ion-card-content>     
     </ion-card>
   </main>
 </ion-content>

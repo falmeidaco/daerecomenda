@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PlacesModalPage } from '../pages/places-modal/places-modal';
 import { FiltersModalPage } from '../pages/filters-modal/filters-modal';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FiltersModalPage } from '../pages/filters-modal/filters-modal';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Geolocation
   ]
 })
 export class AppModule {}

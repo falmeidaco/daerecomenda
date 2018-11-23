@@ -268,3 +268,10 @@ page-about {
         }
     }
 }
+
+#map-container, #map {
+    height: 100%;
+}
+.map-hide, .list-hide {
+    display: none;
+}

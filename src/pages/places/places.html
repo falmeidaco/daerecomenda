@@ -8,43 +8,57 @@
       </button>
     </ion-buttons>
   </ion-navbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="view_mode" (ionChange)="viewModeChange($event)">
+      <ion-segment-button value="list">
+        Exibir lista
+      </ion-segment-button>
+      <ion-segment-button value="map">
+        Exibir mapa
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
   <ion-searchbar [(ngModel)]="filter.search" (ionInput)="onSearchInput($event)" placeholder="Pesquise pelo nome ou descrição do local"></ion-searchbar>
 </ion-header>
 
 <ion-content>
   
-  <header>
-      <p>Locais encontrados <ion-badge>{{places.length}}</ion-badge></p>
-  </header>
-
-  <main class="content-list">  
-    <ion-card *ngFor="let place of places" (click)="openPlaceModal(place)">
-      <img src="{{place.image}}"/>
-      <ion-card-content>
-        <div class="block-content content-title">
-          <ion-card-title>{{place.name}}</ion-card-title>
-          <p>
-            <ion-note>
-              <ion-icon name="pin" small></ion-icon> 200 metros de você
-            </ion-note>
-          </p>
-          <p>{{place.description | slice:0:255}}...</p>
-        </div>
-        <div class="block-content content-distance">
-          
-        </div>
-        <div class="block-content content-categories">
-            <div>
-              <span *ngFor="let category of place.categories" class="ion-badge-list">
-                <ion-badge>{{placesServiceInstance.categories[category].label | uppercase}}</ion-badge>
-              </span>
-            </div>
-        </div>
-        <button ion-button icon-end outline block color="primary">
-          <div>Saiba mais</div>
-          <ion-icon name="arrow-round-forward"></ion-icon>
-        </button>
-      </ion-card-content>     
-    </ion-card>
-  </main>
+  <div [class]="mode_map_class" id="map-container" style="content:'{{view_mode}}';">
+    <div #map id="map"></div>
+  </div>
+  <div [class]="mode_list_class">
+    <header>
+        <p>{{view_mode}} Locais encontrados <ion-badge>{{places.length}}</ion-badge> </p>
+    </header>
+    <main class="content-list">  
+      <ion-card *ngFor="let place of places" (click)="openPlaceModal(place)">
+        <img src="{{place.image}}"/>
+        <ion-card-content>
+          <div class="block-content content-title">
+            <ion-card-title>{{place.name}}</ion-card-title>
+            <p>
+              <ion-note>
+                <ion-icon name="pin" small></ion-icon> 200 metros de você
+              </ion-note>
+            </p>
+            <p>{{place.description | slice:0:255}}...</p>
+          </div>
+          <div class="block-content content-distance">
+            
+          </div>
+          <div class="block-content content-categories">
+              <div>
+                <span *ngFor="let category of place.categories" class="ion-badge-list">
+                  <ion-badge>{{placesServiceInstance.categories[category].label | uppercase}}</ion-badge>
+                </span>
+              </div>
+          </div>
+          <button ion-button icon-end outline block color="primary">
+            <div>Saiba mais</div>
+            <ion-icon name="arrow-round-forward"></ion-icon>
+          </button>
+        </ion-card-content>     
+      </ion-card>
+    </main>
+  </div>
 </ion-content>

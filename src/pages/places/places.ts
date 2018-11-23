@@ -4,18 +4,28 @@ import { PlacesModalPage } from '../places-modal/places-modal';
 import { FiltersModalPage } from '../filters-modal/filters-modal';
 import { Place } from '../../providers/place-service/place';
 import { PlaceService } from '../../providers/place-service/place-service';
+import { Geolocation } from '@ionic-native/geolocation';
+
+declare var google;
 
 @Component({
   selector: 'page-places',
   templateUrl: 'places.html'
 })
 export class PlacesPage {
-
+  map: any;
+  map_ready:boolean;
+  mode_list_class: string;
+  mode_map_class: string;
   places: Place[];
   placesServiceInstance: PlaceService;
   filter: any;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl:ModalController) {
+  view_mode: string;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl:ModalController, private geolocation: Geolocation) {
+    this.view_mode = 'list';
+    this.mode_list_class = 'list-show';
+    this.mode_map_class = 'map-hide';
+    this.map_ready = false;
     this.placesServiceInstance = new PlaceService();
     // Filters
     this.filter = {
@@ -27,6 +37,53 @@ export class PlacesPage {
     };
     //First load place list with no filter
     this.places = this.placesServiceInstance.getPlaces(this.filter);
+  }
+
+  viewModeChange(event: any):void {
+    if (this.view_mode === 'map') {
+      this.mode_map_class = 'map-show';
+      this.mode_list_class = 'list-hide';
+      
+      if (this.view_mode === 'map') {
+        if (!this.map_ready) {
+          /*
+          const position = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
+          const mapOptions = {
+            zoom: 18,
+            center: position,
+            disableDefaultUI: true
+          }
+          this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+          const marker = new google.maps.Marker({
+            position: position,
+            map: this.map,
+            title: 'Minha posição',
+            animation: google.maps.Animation.DROP
+          });
+          */
+          this.geolocation.getCurrentPosition()
+          .then((resp) => {
+            const position = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
+            const mapOptions = {
+              zoom: 18,
+              center: position
+            }
+            this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+            const marker = new google.maps.Marker({
+              position: position,
+              map: this.map
+            });
+          }).catch((error) => {
+            console.log('Erro ao recuperar sua posição', error);
+          });
+          this.map_ready = true;
+        }
+      }
+
+    } else {
+      this.mode_map_class = 'map-hide';
+      this.mode_list_class = 'list-show';
+    }
   }
 
   onSearchInput(event: any) {
@@ -62,6 +119,7 @@ export class PlacesPage {
   }
 
   ionViewDidLoad() {
+    
   }
 
 }

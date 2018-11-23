@@ -16,39 +16,247 @@
 // automatically applied to the <body> element in the app.
 
 @font-face {
-    font-family: 'Montserrat';
+    font-family: 'Raleway';
+    font-weight: 800;
+    font-style: normal;
+    src: url('../assets/fonts/raleway/Raleway-Bold.ttf');
+}
+@font-face {
+    font-family: 'Raleway';
     font-weight: 600;
     font-style: normal;
-    src: url('../assets/fonts/montserrat/ttf/Montserrat-Bold.ttf');
+    src: url('../assets/fonts/raleway/Raleway-Medium.ttf');
 }
 @font-face {
-    font-family: 'Montserrat';
+    font-family: 'Raleway';
     font-weight: 400;
     font-style: normal;
-    src: url('../assets/fonts/montserrat/ttf/Montserrat-Regular.ttf');
+    src: url('../assets/fonts/raleway/Raleway-Regular.ttf');
 }
 @font-face {
-    font-family: 'Montserrat';
-    font-weight: 300;
+    font-family: 'Raleway';
+    font-weight: 200;
     font-style: normal;
-    src: url('../assets/fonts/montserrat/ttf/Montserrat-Light.ttf');
+    src: url('../assets/fonts/raleway/Raleway-Light.ttf');
 }
 
 h1, h2, h3, h4, h5, h5 {
-    font-weight: 600;
+    font-family: 'Raleway';
 }
 
-page-places, page-about, page-places-modal {
-    h1, h2, h3 {
-        font-weight: 400;
+page-home {
+    ion-content {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6c2dc3+0,8b5acd+49,7756a4+100 */
+        background: #6c2dc3; /* Old browsers */
+        background: -moz-linear-gradient(top, #6c2dc3 0%, #8b5acd 49%, #7756a4 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #6c2dc3 0%,#8b5acd 49%,#7756a4 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #6c2dc3 0%,#8b5acd 49%,#7756a4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6c2dc3', endColorstr='#7756a4',GradientType=0 ); /* IE6-9 */
+        header {
+            img {
+                margin: 20px 0;
+            }
+            .text-welcome {
+                margin: 0 0 30px;
+                color:white;
+                h1 {
+                    font-weight: 600;
+                    margin:0;
+                }
+                p {
+                    margin: 0;
+                    font-size: 1.3em;
+                }
+            }
+        }
+        ion-card {
+            background-color: rgba(255,255,255,0.2) !important;
+            border-radius: 10px !important;
+            ion-card-content  {
+                h2, p {
+                    color: white !important; 
+                }
+                h2 {
+                    font-weight: 800 !important;
+                    margin-bottom: 0.6em !important;
+                }
+                p {
+                    font-size: 0.9em;
+                }
+            }
+        }
     }
-    .ion-badge-list {
-        line-height: 2em;
-        ion-badge {
-            border-radius: 20px;
-            font-size: 1rem;
-            font-weight: 400;
-            padding: .6em 1em;
+}
+
+page-places {
+    ion-header {
+        ion-navbar {
+            .toolbar-background {
+                background-color: #6c2dc3;
+            }
+            .toolbar-title {
+                color: white;
+                font-weight: 800;
+            }
+            ion-buttons {
+                .button-inner {
+                    color: white;
+                }
+            }
+        }
+    }
+    ion-content {
+        background-color: #4a1e86 !important;
+        header {
+            margin: 1em 0 0 0;
+            color: white;
+            font-size: 1.2em;
+            p {
+                margin-top: 0;
+            }
+        }
+        ion-card {
+            ion-card-content {
+                .content-title {
+                    margin-bottom: 1em;
+                    ion-card-title {
+                        font-weight: 800;
+                    }
+                }
+                .content-categories {
+                    margin-bottom: 1em;
+                    h2 {
+                        color: gray;
+                        text-transform: uppercase;
+                        font-size: 0.8em;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+}
+
+page-filters-modal {
+    ion-header {
+        ion-navbar {
+            .toolbar-background {
+                background-color: #606060;
+            }
+            .toolbar-title {
+                color: white;
+                font-weight: 800;
+            }
+            ion-buttons {
+                .button-inner {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+page-places-modal {
+    ion-header {
+        ion-navbar {
+            .toolbar-background {
+                background-color: #6c2dc3;
+            }
+            .toolbar-title {
+                color: white;
+                font-weight: 800;
+            }
+            ion-buttons {
+                .button-inner {
+                    color: white;
+                }
+            }
+        }
+    }
+    ion-content {
+        header {
+            background-color: #f5f5f5;
+            padding: 1em;
+            border-radius: 0.2em;
+            margin-bottom: 2em;
+            h1 {
+                font-weight: 800;
+                text-align: center;
+            }
+            p {
+                line-height: 1.7em;
+                text-align: center;
+            }
+        }
+        .block-content {
+            margin-bottom: 1.8em;
+            h2 {
+                text-transform: uppercase;
+                font-weight: 800;
+                font-size: 1em;
+                margin-bottom: 0.4em;
+            }
+            p {
+                margin: 0;
+                line-height: 1.7em;
+            }
+        }
+        .block-content-tags {
+            .badge {
+                color: #7b7b7b !important;
+            }
+        }
+    }
+}
+
+page-about {
+    ion-header {
+        ion-navbar {
+            .toolbar-background {
+                background-color: #6c2dc3;
+            }
+            .toolbar-title {
+                color: white;
+                font-weight: 800;
+            }
+            ion-buttons {
+                .button-inner {
+                    color: white;
+                }
+            }
+        }
+    }
+    ion-content {
+        .block-content {
+            margin-bottom: 1.8em;
+            h2 {
+                font-weight: 800;
+                margin-bottom: 0.4em;
+            }
+            p {
+                margin: 0;
+                line-height: 2em;
+            }
+        }
+    }
+}
+
+.ion-badge-list {
+    line-height: 2em;
+    ion-badge {
+        border-radius: 20px;
+        font-size: 0.8em;
+        font-weight: 800;
+        padding: .6em 1em;
+    }
+}
+.metatag-list {
+    ion-item {
+        h2 {
+            font-size: 0.7em;
+            padding-top: 2px;
+            font-weight: 800;
+            text-transform: uppercase;
         }
     }
 }

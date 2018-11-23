@@ -9,48 +9,52 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
+
 <ion-content padding>
   <header>
-    <h2>{{place.name}}</h2>
+    <h1>{{place.name}}</h1>
     <p>{{place.description}}</p>
   </header>
-  <div>
+  <div class="block-content">
+    <h2>Endereço</h2>
     <p>{{place.location.full_address}} - {{place.location.city}}, {{place.location.state}}</p>
   </div>
-  <div>
-    <h3>Serviços</h3>
-    <p>
+  <div class="block-content">
+    <h2>Serviços</h2>
+    <div>
       <span *ngFor="let category of place.categories" class="ion-badge-list">
         <ion-badge>{{categories[category].label | uppercase}}</ion-badge>
       </span>
-    </p>
+    </div>
   </div>
-  <div>
-    <h3>Características do local</h3>
-    <p>
+  <div class="block-content block-content-tags">
+    <h2>Características do local</h2>
+    <div>
       <span *ngFor="let tag of place.tags" class="ion-badge-list">
-        <ion-badge color="light">{{tags[tag].label | uppercase}}</ion-badge>
+        <ion-badge color="lightgray">{{tags[tag].label | uppercase}}</ion-badge>
       </span>
-    </p>
+    </div>
   </div>
-  <ion-list>
-    <ion-item *ngFor="let phone of phones">
-      <ion-icon name="call" item-start></ion-icon>
-      <h2>Telefone</h2>
-      <h3>{{phone.value}}</h3>
-      <button ion-button clear item-end>Ligar</button>
-    </ion-item>
-    <ion-item *ngFor="let email of emails">
-        <ion-icon name="mail" item-start></ion-icon>
-        <h2>E-mail</h2>
-        <h3>{{email.value}}</h3>
-        <button ion-button clear item-end>Mensagem</button>
-    </ion-item>
-    <ion-item *ngFor="let website of websites">
-        <ion-icon name="globe" item-start></ion-icon>
-        <h2>Site</h2>
-        <h3>{{website.value}}</h3>
-        <button ion-button clear item-end>Acessar</button>
-    </ion-item>
-  </ion-list>
+  <div class="metatag-list">
+    <ion-list>
+      <ion-item *ngFor="let phone of phones">
+        <ion-icon name="call" item-start></ion-icon>
+        <h2>Telefone</h2>
+        <h3>{{phone.value}}</h3>
+        <button ion-button clear item-end>Ligar</button>
+      </ion-item>
+      <ion-item *ngFor="let email of emails">
+          <ion-icon name="mail" item-start></ion-icon>
+          <h2>E-mail</h2>
+          <h3>{{email.value}}</h3>
+          <button ion-button clear item-end>Mensagem</button>
+      </ion-item>
+      <ion-item *ngFor="let website of websites">
+          <ion-icon name="globe" item-start></ion-icon>
+          <h2>Site</h2>
+          <h3>{{website.value}}</h3>
+          <button ion-button clear item-end>Acessar</button>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

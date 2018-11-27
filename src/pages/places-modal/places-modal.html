@@ -19,10 +19,10 @@
     <h2>Endereço</h2>
     <p>{{place.location.full_address}} - {{place.location.city}}, {{place.location.state}}</p>
   </div>
-  <div class="block-content">
+  <div class="block-content block-content-categories">
     <h2>Serviços</h2>
     <div>
-      <span *ngFor="let category of place.categories" class="ion-badge-list">
+      <span *ngFor="let category of place.categories" [class]="isSelectedFilter('category', categories[category].name)">
         <ion-badge>{{categories[category].label | uppercase}}</ion-badge>
       </span>
     </div>
@@ -30,7 +30,7 @@
   <div class="block-content block-content-tags">
     <h2>Características do local</h2>
     <div>
-      <span *ngFor="let tag of place.tags" class="ion-badge-list">
+      <span *ngFor="let tag of place.tags" [class]="isSelectedFilter('tag', tags[tag].name)">
         <ion-badge color="lightgray">{{tags[tag].label | uppercase}}</ion-badge>
       </span>
     </div>

@@ -1,33 +1,27 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController, NavParams } from 'ionic-angular';
+import { NavController, ModalController, NavParams, LoadingController } from 'ionic-angular';
 import { PlacesModalPage } from '../places-modal/places-modal';
 import { FiltersModalPage } from '../filters-modal/filters-modal';
 import { Place } from '../../providers/place-service/place';
 import { PlaceService } from '../../providers/place-service/place-service';
 import { Geolocation } from '@ionic-native/geolocation';
-
-declare var google;
+import leaflet from 'leaflet';
 
 @Component({
   selector: 'page-places',
   templateUrl: 'places.html'
 })
+
 export class PlacesPage {
+  filter: any;
+  placesServiceInstance: PlaceService;
+  places: Place[];
+  view_mode: string;
   map: any;
   map_ready:boolean;
-  mode_list_class: string;
-  mode_map_class: string;
-  places: Place[];
-  placesServiceInstance: PlaceService;
-  filter: any;
-  view_mode: string;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl:ModalController, private geolocation: Geolocation) {
-    this.view_mode = 'list';
-    this.mode_list_class = 'list-show';
-    this.mode_map_class = 'map-hide';
-    this.map_ready = false;
+  map_markers: any[];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl:ModalController, public loadingCtrl: LoadingController, private geolocation:Geolocation) {
     this.placesServiceInstance = new PlaceService();
-    // Filters
     this.filter = {
       search:'',
       c:[
@@ -35,54 +29,52 @@ export class PlacesPage {
       ],
       t:[]
     };
-    //First load place list with no filter
     this.places = this.placesServiceInstance.getPlaces(this.filter);
+    this.map_markers = new Array<any>();
+    this.view_mode = 'vew-mode-list';
+    this.map_ready = false;
   }
 
   viewModeChange(event: any):void {
-    if (this.view_mode === 'map') {
-      this.mode_map_class = 'map-show';
-      this.mode_list_class = 'list-hide';
-      
-      if (this.view_mode === 'map') {
-        if (!this.map_ready) {
-          /*
-          const position = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
-          const mapOptions = {
-            zoom: 18,
-            center: position,
-            disableDefaultUI: true
-          }
-          this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-          const marker = new google.maps.Marker({
-            position: position,
-            map: this.map,
-            title: 'Minha posição',
-            animation: google.maps.Animation.DROP
+    if (this.view_mode === 'view-mode-map') {
+      if (!this.map_ready) {
+        let loading = this.loadingCtrl.create({
+          content: 'Carregando mapa...'
+        });
+        loading.present();
+        this.geolocation.getCurrentPosition()
+        .then((resp) => {
+          let map_center = [resp.coords.latitude, resp.coords.longitude]            
+          this.map = leaflet.map('map', {
+            center: map_center,
+            zoom: 10
           });
-          */
-          this.geolocation.getCurrentPosition()
-          .then((resp) => {
-            const position = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
-            const mapOptions = {
-              zoom: 18,
-              center: position
+          leaflet.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'DAE Recomenda - UFC SMD',
+            maxzoom: 18,
+            id: 'daerecomenda.places',
+            accessToken: 'pk.eyJ1IjoiZmFsbWVpZGFjbyIsImEiOiJjam94Z3VueTIwdWlmM3ZvM25xMjh3enlnIn0.rr08D5uKKc-X9aJwxvviQQ'
+          }).addTo(this.map);
+          for (let i = 0; i < this.places.length; i = i + 1) {
+            if (this.places[i].location.latlng !== null) {
+              let marker = leaflet.marker(this.places[i].location.latlng);
+              this.map.addLayer(marker);
+              marker.bindPopup(`
+                <div class="marker-popup-title">${this.places[i].name}</div>
+                <div class="marker-popup-content">
+                  <a href="${i}">Ver detalhes do local</a>
+                </div>
+              `);
+              this.map_markers.push(marker);
             }
-            this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-            const marker = new google.maps.Marker({
-              position: position,
-              map: this.map
-            });
-          }).catch((error) => {
-            console.log('Erro ao recuperar sua posição', error);
-          });
-          this.map_ready = true;
-        }
+          }
+          loading.dismiss();
+        }).catch((error) => {
+          loading.dismiss();
+          console.log('Erro ao recuperar sua posição', error);
+        });
+        this.map_ready = true;
       }
-
-    } else {
-      this.mode_map_class = 'map-hide';
-      this.mode_list_class = 'list-show';
     }
   }
 
@@ -105,6 +97,7 @@ export class PlacesPage {
 
   openPlaceModal(place:Place) {
     let data = { 
+      filters: this.filter,
       place: place,
       categories: this.placesServiceInstance.categories,
       tags: this.placesServiceInstance.tags
@@ -119,7 +112,6 @@ export class PlacesPage {
   }
 
   ionViewDidLoad() {
-    
   }
 
 }

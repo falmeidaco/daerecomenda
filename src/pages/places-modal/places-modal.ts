@@ -8,15 +8,15 @@ import { Place } from '../../providers/place-service/place';
   templateUrl: 'places-modal.html',
 })
 export class PlacesModalPage {
-
+  filters: any;
   place: Place;
   categories: any;
   tags: any;
   phones: any[] = new Array<any>();
   websites: any[] = new Array<any>();
   emails: any[] = new Array<any>();
-
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+    this.filters = navParams.get('filters');
     this.place = navParams.get('place');
     this.categories = navParams.get('categories');
     this.tags = navParams.get('tags');
@@ -29,6 +29,11 @@ export class PlacesModalPage {
         this.websites.push(this.place.metadata[i]);
       }
     }
+  }
+
+  isSelectedFilter(type:string, name:string) {
+    let t = (type === 'category') ? 'c' : 't';
+    return (this.filters[t].indexOf(name) > -1) ? 'ion-badge-list badge-selected' : 'ion-badge-list';
   }
 
   closeModal(){

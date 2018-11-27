@@ -35,7 +35,7 @@ export class PlaceService {
     // Search term filter
     if (filter['search'].trim() !== '') {
       places = places.filter((value: Place) => {
-        return value.name.toLowerCase().search(filter['search'].toLowerCase()) > -1 || value.description.toLowerCase().search(filter['search'].toLowerCase()) > -1;
+        return value.name.toLowerCase().search(filter['search'].toLowerCase()) > -1;
       });
     }
     return places;
@@ -64,8 +64,8 @@ export class PlaceService {
       /* Places */
       new Place({
         id: 1,
-        name:'Nami/Unifor',
-        description:'O Serviço de Psicologia Aplicada presta atendimentos na área de psicologia em suas diversas subespecialidades, como plantão psicológico, psicoterapia com atendimentos individuais, em grupo e familiares. O encaminhamento é feito a partir de regulação da Secretaria Municipal de Saúde de Fortaleza por meio dos Centros de Atenção Psicossocial (CAPS). Nesse setor há também a possibilidade de atendimentos privados por meio de consultas particulares ou por alguns convênios de saúde.',
+        name:'Núcleo de Atenção Média Integrada / NAMI - Unifor',
+        description:'O NAMI presta serviços ao público nas áreas de reabilitação física auditiva e intelectual, terapia ocupacional, psicologia, fonoaudiologia, fisioterapia, nutrição, consultas médicas e de enfermagem ambulatoriais. Além disso, os usuários têm acesso a assistência farmacêutica, posto de coleta de leite humano, serviço social, clínica de vacinas e serviço de apoio ao diagnóstico (laboratório de análises clínicas e setor de imagens). Os usuários são encaminhados pelo Sistema Único de Saúde (SUS) via rede pública municipal de Saúde de Fortaleza, atendidos de forma particular e de convênios, além de atendimentos por meio de programas responsabilidade social. Confira cada um deles:',
         image: 'assets/imgs/places/unifor.jpg',
         categories:[
           this.categories.psicologico.name,
@@ -83,23 +83,16 @@ export class PlaceService {
           this.tags.estacionamento.name
         ],
         location: {
-          full_address:'R. Des. Floriano Benevides Magalhães, 221 Edson Queiroz',
-          zip:'000000-000',
+          full_address:'R. Des. Floriano Benevides Magalhães, 221 - Edson Queiroz',
+          zip:'60811-905',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: {
-            lat:0,
-            lng:0
-          }
+          latlng: [-3.7723742, -38.4822347]
         },
         metadata: [
           {
             name:'phone',
-            value: '85 3477-3643'
-          },
-          {
-            name:'phone',
-            value: '85 3477-3644'
+            value: '(85) 3477-3611'
           },
           {
             name:'website',
@@ -107,14 +100,14 @@ export class PlaceService {
           },
           {
             name:'email',
-            value: 'triagemspa@unifor.br'
+            value: 'nami@unifor.br'
           }
         ]
       }),
       new Place({
         id: 1,
         name:'FIC',
-        description:'A Clínica Escola de Psicologia do Centro Universitário Estácio do Ceará oferece plantão psicológico gratuito, sem necessidade de agendamento prévio. Esta modalidade de atendimento é indicada para pessoas em situações de urgência, que necessitam de auxílio para superar circunstâncias imediatas de crises psicoemocionais. Além dos plantões, a Clínica Escola de Psicologia da Estácio oferece consultas destinadas a crianças, adolescentes, adultos, idosos, casais e famílias. Dentre os tratamentos, estão a ludoterapia (psicoterapia infantil), orientação profissional, atendimentos individuais e grupais, além de rodas de conversas com grupos da terceira idade.',
+        description:'A Clínica Escola de Psicologia do Centro Universitário Estácio do Ceará oferece plantão psicológico gratuito, às quartas-feiras, das 8h às 11h, e às sextas-feiras, das 15h às 17h, sem necessidade de agendamento prévio. Esta modalidade de atendimento é indicada para pessoas em situações de urgência, que necessitam de auxílio para superar circunstâncias imediatas de crises psicoemocionais. Além dos plantões, a Clínica Escola de Psicologia da Estácio oferece consultas destinadas a crianças, adolescentes, adultos, idosos, casais e famílias. Dentre os tratamentos, estão a ludoterapia (psicoterapia infantil), orientação profissional, atendimentos individuais e grupais, além de rodas de conversas com grupos da terceira idade.',
         image: 'assets/imgs/places/default-place-image.png',
         categories:[
           this.categories.psicologico.name,
@@ -136,23 +129,12 @@ export class PlaceService {
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: {
-            lat:0,
-            lng:0
-          }
+          latlng: [-3.7662782,-38.4972049]
         },
         metadata: [
           {
             name:'phone',
-            value: '85 3270-6798'
-          },
-          {
-            name:'website',
-            value: 'http://www.website.com'
-          },
-          {
-            name:'email',
-            value: 'email@hotmail.com.com'
+            value: '85 3271-1992'
           }
         ]
       }),
@@ -181,10 +163,7 @@ export class PlaceService {
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: {
-            lat:0,
-            lng:0
-          }
+          latlng: null
         },
         metadata: [
           {
@@ -226,10 +205,7 @@ export class PlaceService {
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: {
-            lat:0,
-            lng:0
-          }
+          latlng: null
         },
         metadata: [
           {
@@ -266,10 +242,7 @@ export class PlaceService {
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: {
-            lat:0,
-            lng:0
-          }
+          latlng: null
         },
         metadata: [
           {
@@ -306,10 +279,7 @@ export class PlaceService {
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: {
-            lat:0,
-            lng:0
-          }
+          latlng: null
         },
         metadata: [
           {
@@ -350,10 +320,7 @@ export class PlaceService {
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: {
-            lat:0,
-            lng:0
-          }
+          latlng: null
         },
         metadata: [
           {
@@ -393,10 +360,7 @@ export class PlaceService {
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: {
-            lat:0,
-            lng:0
-          }
+          latlng: null
         },
         metadata: [
           {
@@ -433,10 +397,7 @@ export class PlaceService {
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: {
-            lat:0,
-            lng:0
-          }
+          latlng: null
         },
         metadata: [
           {

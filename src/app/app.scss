@@ -105,6 +105,11 @@ page-places {
             }
         }
     }
+    ion-header.view-mode-map {
+        ion-searchbar {
+            display: none;
+        }
+    }
     ion-content {
         background-color: #4a1e86 !important;
         header {
@@ -135,6 +140,22 @@ page-places {
             }
         }
     }
+    ion-content.view-mode-list {
+        #list-container {
+            display: block;
+        }
+        #map-container {
+            display: none;
+        }
+    }
+    ion-content.view-mode-map {
+        #list-container {
+            display: none;
+        }
+        #map-container {
+            display: block;
+        }
+    }  
 }
 
 page-filters-modal {
@@ -209,9 +230,17 @@ page-places-modal {
                 line-height: 1.7em;
             }
         }
+        .block-content-categories {
+            .badge-selected ion-badge {
+                background-color: darken($color: #e7a32c, $amount: 10);
+            }
+        }
         .block-content-tags {
-            .badge {
-                color: #7b7b7b !important;
+            ion-badge {
+                color: #606060 !important;
+            }
+            .badge-selected ion-badge {
+                background-color: darken($color: #e8e8e8, $amount: 10);
             }
         }
     }
@@ -271,7 +300,4 @@ page-about {
 
 #map-container, #map {
     height: 100%;
-}
-.map-hide, .list-hide {
-    display: none;
 }

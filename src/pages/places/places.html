@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header [class]="view_mode">
   <ion-navbar icon-start>
     <ion-title>Locais de Apoio</ion-title>
     <ion-buttons end>
@@ -10,27 +10,24 @@
   </ion-navbar>
   <ion-toolbar>
     <ion-segment [(ngModel)]="view_mode" (ionChange)="viewModeChange($event)">
-      <ion-segment-button value="list">
+      <ion-segment-button value="view-mode-list">
         Exibir lista
       </ion-segment-button>
-      <ion-segment-button value="map">
+      <ion-segment-button value="view-mode-map">
         Exibir mapa
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
-  <ion-searchbar [(ngModel)]="filter.search" (ionInput)="onSearchInput($event)" placeholder="Pesquise pelo nome ou descrição do local"></ion-searchbar>
+  <ion-searchbar [(ngModel)]="filter.search" (ionInput)="onSearchInput($event)" placeholder="Pesquise pelo nome"></ion-searchbar>
 </ion-header>
 
-<ion-content>
-  
-  <div [class]="mode_map_class" id="map-container" style="content:'{{view_mode}}';">
-    <div #map id="map"></div>
-  </div>
-  <div [class]="mode_list_class">
+<ion-content [class]="view_mode">
+  <div id="list-container">
     <header>
-        <p>{{view_mode}} Locais encontrados <ion-badge>{{places.length}}</ion-badge> </p>
+        <p>Locais encontrados <ion-badge>{{places.length}}</ion-badge> </p>
     </header>
     <main class="content-list">  
+      <!-- List of cads -->
       <ion-card *ngFor="let place of places" (click)="openPlaceModal(place)">
         <img src="{{place.image}}"/>
         <ion-card-content>
@@ -42,9 +39,6 @@
               </ion-note>
             </p>
             <p>{{place.description | slice:0:255}}...</p>
-          </div>
-          <div class="block-content content-distance">
-            
           </div>
           <div class="block-content content-categories">
               <div>
@@ -59,6 +53,10 @@
           </button>
         </ion-card-content>     
       </ion-card>
+      <!-- /List of cards -->
     </main>
+  </div>
+  <div id="map-container">
+    <div id="map"></div>
   </div>
 </ion-content>

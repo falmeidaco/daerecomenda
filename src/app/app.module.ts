@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PlacesModalPage } from '../pages/places-modal/places-modal';
 import { FiltersModalPage } from '../pages/filters-modal/filters-modal';
+import { AboutModalPage } from '../pages/about-modal/about-modal';
 import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     PlacesPage,
     AboutPage,
     PlacesModalPage,
-    FiltersModalPage
+    FiltersModalPage,
+    AboutModalPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     PlacesPage,
     AboutPage,
     PlacesModalPage,
-    FiltersModalPage
+    FiltersModalPage,
+    AboutModalPage
   ],
   providers: [
     StatusBar,

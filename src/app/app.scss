@@ -278,6 +278,60 @@ page-about {
     }
 }
 
+page-about-modal {
+    ion-header {
+        ion-navbar {
+            .toolbar-background {
+                background-color: #6c2dc3;
+            }
+            .toolbar-title {
+                color: white;
+                font-weight: 800;
+            }
+            ion-buttons {
+                .button-inner {
+                    color: white;
+                }
+            }
+        }
+    }
+    ion-content {
+        header {
+            background-color: #f5f5f5;
+            padding: 1em;
+            border-radius: 0.2em;
+            margin-bottom: 2em;
+            h1 {
+                font-weight: 800;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+            p {
+                line-height: 2em;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+        }
+        main  {
+            img {
+                height: 200px;
+                margin: 0 auto;
+                display: block
+            }
+            p {
+                font-size: 1em;
+                line-height: 1.8em;
+            }
+            h3 {
+                font-weight: 800;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
 .ion-badge-list {
     line-height: 2em;
     ion-badge {

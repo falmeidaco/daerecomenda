@@ -104,10 +104,10 @@ page-places {
                 }
             }
         }
-    }
-    ion-header.view-mode-map {
-        ion-searchbar {
-            display: none;
+        ion-toolbar {
+            ion-segment-button {
+                font-weight: 800 !important;
+            }
         }
     }
     ion-content {
@@ -145,12 +145,12 @@ page-places {
             display: block;
         }
         #map-container {
-            display: none;
+            display: none !important;
         }
     }
     ion-content.view-mode-map {
         #list-container {
-            display: none;
+            display: none !important;
         }
         #map-container {
             display: block;

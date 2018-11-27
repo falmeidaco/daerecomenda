@@ -8,7 +8,6 @@ export class PlaceService {
   tags: any;
 
   getPlaces(filter = {}): Place[] {
-    console.log(filter['c']);
     let places = this.places;
     // Category filter
     if (filter['c'].length > 0) {

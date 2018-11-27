@@ -23,7 +23,7 @@
     <h2>Serviços</h2>
     <div>
       <span *ngFor="let category of place.categories" [class]="isSelectedFilter('category', categories[category].name)">
-        <ion-badge>{{categories[category].label | uppercase}}</ion-badge>
+        <ion-badge (click)="toggleFilter($event, 'c', categories[category])">{{categories[category].label | uppercase}}</ion-badge>
       </span>
     </div>
   </div>
@@ -31,7 +31,7 @@
     <h2>Características do local</h2>
     <div>
       <span *ngFor="let tag of place.tags" [class]="isSelectedFilter('tag', tags[tag].name)">
-        <ion-badge color="lightgray">{{tags[tag].label | uppercase}}</ion-badge>
+        <ion-badge (click)="toggleFilter($event, 't', tags[tag])" color="lightgray">{{tags[tag].label | uppercase}}</ion-badge>
       </span>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<ion-header [class]="view_mode">
+<ion-header>
   <ion-navbar icon-start>
     <ion-title>Locais de Apoio</ion-title>
     <ion-buttons end>
@@ -18,43 +18,45 @@
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
-  <ion-searchbar [(ngModel)]="filter.search" (ionInput)="onSearchInput($event)" placeholder="Pesquise pelo nome"></ion-searchbar>
 </ion-header>
 
 <ion-content [class]="view_mode">
   <div id="list-container">
-    <header>
-        <p>Locais encontrados <ion-badge>{{places.length}}</ion-badge> </p>
-    </header>
-    <main class="content-list">  
-      <!-- List of cads -->
-      <ion-card *ngFor="let place of places" (click)="openPlaceModal(place)">
-        <img src="{{place.image}}"/>
-        <ion-card-content>
-          <div class="block-content content-title">
-            <ion-card-title>{{place.name}}</ion-card-title>
-            <p>
-              <ion-note>
-                <ion-icon name="pin" small></ion-icon> 200 metros de você
-              </ion-note>
-            </p>
-            <p>{{place.description | slice:0:255}}...</p>
-          </div>
-          <div class="block-content content-categories">
-              <div>
-                <span *ngFor="let category of place.categories" class="ion-badge-list">
-                  <ion-badge>{{placesServiceInstance.categories[category].label | uppercase}}</ion-badge>
-                </span>
-              </div>
-          </div>
-          <button ion-button icon-end outline block color="primary">
-            <div>Saiba mais</div>
-            <ion-icon name="arrow-round-forward"></ion-icon>
-          </button>
-        </ion-card-content>     
-      </ion-card>
-      <!-- /List of cards -->
-    </main>
+    <ion-searchbar [(ngModel)]="filter.search" (ionInput)="onSearchInput($event)" placeholder="Pesquise pelo nome"></ion-searchbar>
+    <ion-scroll style="width:100%;height:100vh" scrollY="true">
+      <header>
+          <p>Locais encontrados <ion-badge>{{places.length}}</ion-badge> </p>
+      </header>
+      <main class="content-list">    
+        <!-- List of cads -->
+        <ion-card *ngFor="let place of places" (click)="openPlaceModal(place)">
+          <img src="{{place.image}}"/>
+          <ion-card-content>
+            <div class="block-content content-title">
+              <ion-card-title>{{place.name}}</ion-card-title>
+              <p>
+                <ion-note>
+                  <ion-icon name="pin" small></ion-icon> 200 metros de você
+                </ion-note>
+              </p>
+              <p>{{place.description | slice:0:255}}...</p>
+            </div>
+            <div class="block-content content-categories">
+                <div>
+                  <span *ngFor="let category of place.categories" class="ion-badge-list">
+                    <ion-badge>{{placesServiceInstance.categories[category].label | uppercase}}</ion-badge>
+                  </span>
+                </div>
+            </div>
+            <button ion-button icon-end outline block color="primary">
+              <div>Saiba mais</div>
+              <ion-icon name="arrow-round-forward"></ion-icon>
+            </button>
+          </ion-card-content>     
+        </ion-card>
+        <!-- /List of cards -->
+      </main>
+    </ion-scroll>
   </div>
   <div id="map-container">
     <div id="map"></div>

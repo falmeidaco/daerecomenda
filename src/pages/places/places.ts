@@ -31,7 +31,7 @@ export class PlacesPage {
     };
     this.places = this.placesServiceInstance.getPlaces(this.filter);
     this.map_markers = new Array<any>();
-    this.view_mode = 'vew-mode-list';
+    this.view_mode = 'view-mode-list';
     this.map_ready = false;
   }
 
@@ -105,6 +105,7 @@ export class PlacesPage {
     let modal = this.modalCtrl.create(PlacesModalPage, data);
     modal.present();
     modal.onDidDismiss(data => {  
+      this.places = this.placesServiceInstance.getPlaces(data);
     });
   }
 

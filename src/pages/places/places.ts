@@ -115,4 +115,9 @@ export class PlacesPage {
   ionViewDidLoad() {
   }
 
+  ionViewDidEnter() {
+    console.log('e3');
+    console.log(this.navParams.get('data'));
+  }
+
 }

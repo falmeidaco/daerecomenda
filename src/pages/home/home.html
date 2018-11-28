@@ -10,7 +10,7 @@
   
   <ion-list>
     
-    <ion-card (click)="switchTab(1)">
+    <ion-card (click)="switchTab(1, 'ajuda')">
       <ion-card-content>
         <h2>Me ajude a encontrar um local de apoio</h2>
         <p>
@@ -19,7 +19,7 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-card (click)="switchTab(1)">
+    <ion-card (click)="switchTab(1, 'locais')">
       <ion-card-content>
         <h2>Mostrar locais de apoio</h2>
         <p>
@@ -28,7 +28,7 @@
       </ion-card-content>
     </ion-card>
     
-    <ion-card (click)="switchTab(2)">
+    <ion-card (click)="switchTab(2, 'sobre')">
       <ion-card-content>
         <h2>Conhecer a DAE</h2>
         <p>

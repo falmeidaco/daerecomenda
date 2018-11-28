@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-home',
@@ -21,7 +22,12 @@ export class HomePage {
     }
   }
 
-  switchTab(tabIndex: number) {
+  switchTab(tabIndex: number, origin:any) {
+    console.log('e1');
+    this.navCtrl.push(TabsPage, {
+      'origin': origin
+    });
+    this.navCtrl.parent.teste();
     this.navCtrl.parent.select(tabIndex);
   }
 
@@ -29,7 +35,6 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
   }
 
 }

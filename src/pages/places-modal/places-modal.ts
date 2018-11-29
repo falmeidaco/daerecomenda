@@ -57,6 +57,18 @@ export class PlacesModalPage {
     return (this.filters[t].indexOf(name) > -1) ? 'ion-badge-list badge-selected' : 'ion-badge-list';
   }
 
+  metadataAction(type:string, value:string) {
+    if (type === 'phone') {
+      window.open('tel:' + value.replace(/[^0-9\.]+/g, ''));
+    } else if (type === 'map') {
+      window.open('https://maps.google.com/?q=' + value);
+    } else if (type === 'email') {
+      window.open('mailto:' + value);
+    } else if (type === 'website') {
+      window.open(value);
+    }
+  }
+
   closeModal(){
     this.viewCtrl.dismiss(this.filters);
   }

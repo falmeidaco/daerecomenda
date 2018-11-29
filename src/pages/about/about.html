@@ -48,19 +48,19 @@
           <ion-icon name="call" item-start></ion-icon>
           <h2>Telefone</h2>
           <h3>(85) 3366 7447</h3>
-          <button ion-button clear item-end>Ligar</button>
+          <button ion-button clear item-end (click)="metadataAction('phone', '(85) 3366 7447')">Ligar</button>
         </ion-item>
         <ion-item>
             <ion-icon name="mail" item-start></ion-icon>
             <h2>E-mail</h2>
             <h3>papeu@ufc.br</h3>
-            <button ion-button clear item-end>Mensagem</button>
+            <button ion-button clear item-end (click)="metadataAction('email', 'papeu@ufc.br')">Mensagem</button>
         </ion-item>
         <ion-item>
             <ion-icon name="globe" item-start></ion-icon>
             <h2>Site</h2>
             <h3>https://www.prae.ufc.br</h3>
-            <button ion-button clear item-end>Acessar</button>
+            <button ion-button clear item-end (click)="metadataAction('website', 'https://www.prae.ufc.br')">Acessar</button>
         </ion-item>
       </ion-list>
     </div>

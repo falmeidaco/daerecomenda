@@ -107,6 +107,7 @@ page-places {
         ion-toolbar {
             ion-segment-button {
                 font-weight: 800 !important;
+                font-size: 1em !important;
             }
         }
     }
@@ -170,11 +171,13 @@ page-places {
         display: block;
         text-decoration: none;
         color: #db9b2a;
-        padding: 4px 6px;
+        padding: 8px 6px;
         border: 1px solid #db9b2a;
         border-radius: 2px;
         text-align: center;
         font-family: 'Raleway';
+        text-transform: uppercase;
+        font-size: 1.3em;
     }
 }
 

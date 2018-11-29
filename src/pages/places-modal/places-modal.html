@@ -41,25 +41,25 @@
         <ion-icon name="map" item-start></ion-icon>
         <h2>Endereço</h2>
         <h3>{{place.location.full_address}}</h3>
-        <button ion-button clear item-end>Mapa</button>
+        <button ion-button clear item-end (click)="metadataAction('map', place.location.full_address + ' - ' + place.location.city + ', ' + place.location.state)">Mapa</button>
       </ion-item>
       <ion-item *ngFor="let phone of phones">
         <ion-icon name="call" item-start></ion-icon>
         <h2>Telefone</h2>
         <h3>{{phone.value}}</h3>
-        <button ion-button clear item-end>Ligar</button>
+        <button ion-button clear item-end (click)="metadataAction('phone', phone.value)">Ligar</button>
       </ion-item>
       <ion-item *ngFor="let email of emails">
-          <ion-icon name="mail" item-start></ion-icon>
-          <h2>E-mail</h2>
-          <h3>{{email.value}}</h3>
-          <button ion-button clear item-end>Mensagem</button>
+        <ion-icon name="mail" item-start></ion-icon>
+        <h2>E-mail</h2>
+        <h3>{{email.value}}</h3>
+        <button ion-button clear item-end (click)="metadataAction('email', email.value)">Mensagem</button>
       </ion-item>
       <ion-item *ngFor="let website of websites">
-          <ion-icon name="globe" item-start></ion-icon>
-          <h2>Site</h2>
-          <h3>{{website.value}}</h3>
-          <button ion-button clear item-end>Acessar</button>
+        <ion-icon name="globe" item-start></ion-icon>
+        <h2>Site</h2>
+        <h3>{{website.value}}</h3>
+        <button ion-button clear item-end (click)="metadataAction('website', website.value)">Acessar</button>
       </ion-item>
     </ion-list>
   </div>

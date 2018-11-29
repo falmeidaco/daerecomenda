@@ -26,7 +26,18 @@ export class AboutPage {
   }
   
   closeAboutModal() {
+  }
 
+  metadataAction(type:string, value:string) {
+    if (type === 'phone') {
+      window.open('tel:' + value);
+    } else if (type === 'map') {
+      window.open('https://maps.google.com/?q=' + value);
+    } else if (type === 'email') {
+      window.open('mailto:' + value);
+    } else if (type === 'website') {
+      window.open(value);
+    }
   }
 
   ionViewDidLoad() {

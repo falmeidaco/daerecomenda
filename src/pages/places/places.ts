@@ -5,6 +5,7 @@ import { FiltersModalPage } from '../filters-modal/filters-modal';
 import { Place } from '../../providers/place-service/place';
 import { PlaceService } from '../../providers/place-service/place-service';
 import { Geolocation } from '@ionic-native/geolocation';
+import geolib from 'geolib';
 import leaflet from 'leaflet';
 
 @Component({
@@ -20,7 +21,11 @@ export class PlacesPage {
   map: any;
   map_ready:boolean;
   map_markers: any[];
+  map_center_default: any;
+  user_location: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl:ModalController, public loadingCtrl: LoadingController, private geolocation:Geolocation) {
+    this.user_location = null;
+    this.map_center_default = [-3.798484, -38.534546];
     this.placesServiceInstance = new PlaceService();
     this.filter = {
       search:'',
@@ -38,41 +43,7 @@ export class PlacesPage {
   viewModeChange(event: any):void {
     if (this.view_mode === 'view-mode-map') {
       if (!this.map_ready) {
-        let loading = this.loadingCtrl.create({
-          content: 'Carregando mapa...'
-        });
-        loading.present();
-        this.geolocation.getCurrentPosition()
-        .then((resp) => {
-          let map_center = [resp.coords.latitude, resp.coords.longitude]            
-          this.map = leaflet.map('map', {
-            center: map_center,
-            zoom: 10
-          });
-          leaflet.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'DAE Recomenda - UFC SMD',
-            maxzoom: 18,
-            id: 'daerecomenda.places',
-            accessToken: 'pk.eyJ1IjoiZmFsbWVpZGFjbyIsImEiOiJjam94Z3VueTIwdWlmM3ZvM25xMjh3enlnIn0.rr08D5uKKc-X9aJwxvviQQ'
-          }).addTo(this.map);
-          for (let i = 0; i < this.places.length; i = i + 1) {
-            if (this.places[i].location.latlng !== null) {
-              let marker = leaflet.marker(this.places[i].location.latlng);
-              this.map.addLayer(marker);
-              marker.bindPopup(`
-                <div class="marker-popup-title">${this.places[i].name}</div>
-                <div class="marker-popup-content">
-                  <a href="${i}">Ver detalhes do local</a>
-                </div>
-              `);
-              this.map_markers.push(marker);
-            }
-          }
-          loading.dismiss();
-        }).catch((error) => {
-          loading.dismiss();
-          console.log('Erro ao recuperar sua posição', error);
-        });
+        this.buildMap();
         this.map_ready = true;
       }
     }
@@ -109,10 +80,78 @@ export class PlacesPage {
     });
   }
 
+  getPlaceDistance(place:Place) {
+    if (this.user_location !== null && place.location.latlng !== null) {
+      let distance = geolib.getDistance(
+        {'latitude':this.user_location[0], 'longitude':this.user_location[1]},
+        {'latitude':place.location.latlng[0], 'longitude':place.location.latlng[1]}
+      );
+      if (distance < 1000) {
+        return `${distance} metros de distância`;
+      } else {
+        return `${(distance/1000).toFixed(2)} km de distância`;
+      }
+    } else {
+      return 'Informação não disponível'
+    }
+  }
+
+  buildMap() {
+    let map_center = (this.user_location !== null) ? this.user_location : this.map_center_default;           
+    this.map = leaflet.map('map', {
+      center: map_center,
+      zoom: 10
+    });
+
+    leaflet.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'DAE Recomenda - UFC SMD',
+      maxzoom: 18,
+      id: 'daerecomenda.places',
+      accessToken: 'pk.eyJ1IjoiZmFsbWVpZGFjbyIsImEiOiJjam94Z3VueTIwdWlmM3ZvM25xMjh3enlnIn0.rr08D5uKKc-X9aJwxvviQQ'
+    }).addTo(this.map);
+    
+    if (this.user_location !== null) {
+      let user_location_icon = leaflet.icon({
+          iconUrl: 'assets/imgs/icon-pin-user-location.png',
+          iconSize: [38, 38],
+          iconAnchor: [17, 38],
+          popupAnchor: [0, -30]
+      });
+      let user_location_market = leaflet.marker(this.user_location, {'icon': user_location_icon})
+        .bindPopup('<p>Esta é sua localização</p>')
+        .addTo(this.map);
+    }
+
+    for (let i = 0; i < this.places.length; i = i + 1) {
+      if (this.places[i].location.latlng !== null) {
+        let marker = leaflet.marker(this.places[i].location.latlng);
+        this.map.addLayer(marker);
+        marker.bindPopup(`
+          <div class="marker-popup-title">${this.places[i].name}</div>
+          <div class="marker-popup-content">
+            <a href="${i}">Ver detalhes do local</a>
+          </div>
+        `);
+        this.map_markers.push(marker);
+      }
+    }
+
+  }
+
+  getUserCoordinates() {
+    this.geolocation.getCurrentPosition()
+    .then((resp) => {
+      this.user_location = [resp.coords.latitude, resp.coords.longitude];
+    }).catch((error) => {
+      this.user_location = null;
+    });
+  }
+
   noOnInit() {
   }
 
   ionViewDidLoad() {
+    this.getUserCoordinates();
   }
 
 }

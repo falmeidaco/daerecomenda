@@ -162,7 +162,7 @@ export class PlaceService {
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: null
+          latlng: [-3.730492, -38.539739]
         },
         metadata: [
           {

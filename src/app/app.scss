@@ -296,37 +296,34 @@ page-about-modal {
         }
     }
     ion-content {
-        header {
-            background-color: #f5f5f5;
-            padding: 1em;
-            border-radius: 0.2em;
-            margin-bottom: 2em;
+        background-color: #ffcc00 !important;
+        section {
+            text-align: center;
             h1 {
                 font-weight: 800;
-                text-align: center;
                 margin: 0;
                 padding: 0;
+                text-transform: uppercase;
+            }
+            h2 {
+                font-weight: 800;
+                font-size: 1em;
+                margin-bottom: 0;
             }
             p {
-                line-height: 2em;
-                text-align: center;
-                margin: 0;
-                padding: 0;
+                margin-top: 0;
+                line-height: 1.6em;
             }
         }
-        main  {
-            img {
-                height: 200px;
-                margin: 0 auto;
-                display: block
-            }
+        section.header {
+            margin: 0.8em;
             p {
-                font-size: 1em;
-                line-height: 1.8em;
+                margin: 0;
             }
-            h3 {
-                font-weight: 800;
-                text-transform: uppercase;
+        }
+        section.about-app {
+            img {
+                height: 100px;
             }
         }
     }

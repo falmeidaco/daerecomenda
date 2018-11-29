@@ -30,7 +30,7 @@ export class AboutPage {
 
   metadataAction(type:string, value:string) {
     if (type === 'phone') {
-      window.open('tel:' + value);
+      window.open('tel:' + value.replace(/[^0-9\.]+/g, ''));
     } else if (type === 'map') {
       window.open('https://maps.google.com/?q=' + value);
     } else if (type === 'email') {

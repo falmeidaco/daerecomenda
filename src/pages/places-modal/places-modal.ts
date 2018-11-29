@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
 import { Place } from '../../providers/place-service/place';
 
-@IonicPage()
 @Component({
   selector: 'page-places-modal',
   templateUrl: 'places-modal.html',

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { PlaceCategory, PlaceTag } from '../../providers/place-service/place';
 
-@IonicPage()
 @Component({
   selector: 'page-filters-modal',
   templateUrl: 'filters-modal.html',

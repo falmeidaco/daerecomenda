@@ -104,7 +104,7 @@ export class PlacesPage {
     let map_center = (this.user_location !== null) ? this.user_location : this.map_center_default;      
     this.map = leaflet.map('map', {
       center: map_center,
-      zoom: 10
+      zoom: 12
     });
     leaflet.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'DAE Recomenda - UFC SMD',
@@ -128,11 +128,16 @@ export class PlacesPage {
         let marker = leaflet.marker(this.places[i].location.latlng);
         this.map.addLayer(marker);
         marker.bindPopup(`
-          <div class="marker-popup-title">${this.places[i].name}</div>
+          <div class="marker-popup-title"><strong>${this.places[i].name}</strong></div>
           <div class="marker-popup-content">
-            <a href="${i}">Ver detalhes do local</a>
+            <a href="#placeIndex-${i}" class="marker-item-action-id-${i}">Saiba mais</a>
           </div>
-        `);
+        `).on('click', (event) => {
+          document.querySelector('.marker-item-action-id-' + i).addEventListener('click', (ev) => {
+            ev.preventDefault();
+            this.openPlaceModal(this.places[i]);
+          }, false);
+        });
         this.map_markers.push(marker);
       }
     }

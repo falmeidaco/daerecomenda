@@ -34,10 +34,8 @@
           <ion-card-content>
             <div class="block-content content-title">
               <ion-card-title>{{place.name}}</ion-card-title>
-              <p>
-                <ion-note>
-                  <ion-icon name="pin" small></ion-icon> {{getPlaceDistance(place)}}
-                </ion-note>
+              <p class="place-distance">
+                <ion-icon name="pin" small></ion-icon> {{getPlaceDistance(place)}}
               </p>
               <p>{{place.description | slice:0:255}}...</p>
             </div>

@@ -122,6 +122,9 @@ page-places {
         }
         ion-card {
             ion-card-content {
+                .place-distance {
+                    color:#717171;
+                }
                 .content-title {
                     margin-bottom: 1em;
                     ion-card-title {
@@ -155,7 +158,24 @@ page-places {
         #map-container {
             display: block;
         }
-    }  
+    }
+    .marker-popup-title {
+        text-align: center;
+        font-size: 1.3em;
+        margin-bottom: 0.5em;
+        font-family: 'Raleway';
+        font-weight: 800;
+    }
+    .marker-popup-content a {
+        display: block;
+        text-decoration: none;
+        color: #db9b2a;
+        padding: 4px 6px;
+        border: 1px solid #db9b2a;
+        border-radius: 2px;
+        text-align: center;
+        font-family: 'Raleway';
+    }
 }
 
 page-filters-modal {

@@ -82,11 +82,11 @@ export class PlaceService {
           this.tags.estacionamento.name
         ],
         location: {
-          full_address:'R. Des. Floriano Benevides Magalhães, 221 - Edson Queiroz',
+          full_address:'Rua Desembargador Floriano Benevides Magalhães, 221 - Edson Queiroz',
           zip:'60811-905',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: [-3.7723742, -38.4822347]
+          latlng: [-3.772107, -38.480089]
         },
         metadata: [
           {
@@ -124,11 +124,11 @@ export class PlaceService {
           this.tags.estacionamento.name
         ],
         location: {
-          full_address:'R. Eliseu Uchôa Beco, 600 Patriolino Ribeiro',
+          full_address:'Rua Eliseu Uchôa Beco, 600 - Patriolino Ribeiro',
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: [-3.7662782,-38.4972049]
+          latlng: [-3.764320, -38.485906]
         },
         metadata: [
           {
@@ -158,11 +158,11 @@ export class PlaceService {
           this.tags.estacionamento.name
         ],
         location: {
-          full_address:'R. Antônio Gomes Guimarães, 256-270 Manoel Dias Branco',
+          full_address:'Rua Antônio Gomes Guimarães, 256-270 - Manoel Dias Branco',
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: [-3.730492, -38.539739]
+          latlng: [-3.749607, -38.462271]
         },
         metadata: [
           {
@@ -200,11 +200,11 @@ export class PlaceService {
           this.tags.estacionamento.name
         ],
         location: {
-          full_address:'Tv. Juvenal de Carvalho, 140 São Gerardo',
+          full_address:'Travessa Juvenal de Carvalho, 140 - São Gerardo',
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: null
+          latlng: [-3.732982, -38.557355]
         },
         metadata: [
           {
@@ -237,11 +237,11 @@ export class PlaceService {
           this.tags.estacionamento.name
         ],
         location: {
-          full_address:'Av. Dr. Silas Munguba, 1700 – Campus Itaperi (ao lado do bloco P) Itaperi',
+          full_address:'Avenida Dr. Silas Munguba, 1700 – Campus Itaperi (ao lado do bloco P) - Itaperi',
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: null
+          latlng: [-3.785801, -38.552688]
         },
         metadata: [
           {
@@ -260,7 +260,7 @@ export class PlaceService {
       }),
       new Place({
         id: 1,
-        name:'Unichristus',
+        name:'Clínica Escola de Saúde (CES) - UniChristus',
         description:'A Clínica Escola de Saúde (CES) do Centro Universitário Christus integra o programa de responsabilidade social da Instituição. Realiza atendimentos gratuitos, em múltiplas especialidades, de forma integrada, humanizada e de qualidade para o cuidado, ensino e pesquisa junto à comunidade da cidade de Fortaleza e circum-adjacências. Desenvolve o Programa Serviço de Atenção Especializada (SAE) em IST/AIDS, em parceria com o Sistema Único de Saúde (SUS). A equipe de profissionais da CES tem como valores o comprometimento, o respeito, a ética e o profissionalismo para desenvolver um atendimento primoroso e eficaz, junto aos usuários de saúde, os alunos dos cursos da área da saúde e seus respectivos preceptores.',
         image: 'assets/imgs/places/unichristus.jpg',
         categories:[
@@ -274,11 +274,11 @@ export class PlaceService {
           this.tags.estacionamento.name
         ],
         location: {
-          full_address:'Avenida Padre Antônio Tomás, 3380 - Campus Parque Ecológico Cocó',
+          full_address:'Avenida Padre Antônio Tomás, 3380 - Campus Parque Ecológico Cocó - Cocó',
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: null
+          latlng: [-3.746177, -38.481732]
         },
         metadata: [
           {
@@ -315,11 +315,11 @@ export class PlaceService {
           this.tags.estacionamento.name
         ],
         location: {
-          full_address:'Rua Adolfo Moreira de Carvalho, 86 Edson Queiroz',
+          full_address:'Rua Adolfo Moreira de Carvalho, 86 - Edson Queiroz',
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: null
+          latlng: [-3.773206, -38.477296]
         },
         metadata: [
           {
@@ -355,11 +355,11 @@ export class PlaceService {
           this.tags.planohapvida.name
         ],
         location: {
-          full_address:'Rua Lauro Maia, 1245 Bairro de Fátima',
+          full_address:'Rua Lauro Maia, 1245 - Bairro de Fátima',
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: null
+          latlng: [-3.750914, -38.522094]
         },
         metadata: [
           {
@@ -378,7 +378,7 @@ export class PlaceService {
       }),
       new Place({
         id: 1,
-        name:'CAPS Fortaleza',
+        name:'Centro de Atenção Psicossocial – CAPS SER II',
         description:'A Rede de Atenção Psicossocial do Município de Fortaleza dispõe de 15 Centros, sendo seis CAPS GERAL, sete CAPS AD – Álcool e Drogas e dois CAPS Infantis. O perfil de atendimento são pessoas que apresentam sofrimentos psíquicos e/ou transtornos mentais severos e persistentes além de dependentes químicos. Nesses casos, o cuidado é partilhado com a Atenção Primária e com os recursos comunitários do território.',
         image: 'assets/imgs/places/caps.jpg',
         categories:[
@@ -392,11 +392,11 @@ export class PlaceService {
           this.tags.estacionamento.name
         ],
         location: {
-          full_address:'Rua Pinto Madeira , 1550',
+          full_address:'Rua Pinto Madeira, 1550',
           zip:'000000-000',
           city:'Fortaleza',
           state:'Ceará',
-          latlng: null
+          latlng: [-3.734218, -38.511618]
         },
         metadata: [
           {

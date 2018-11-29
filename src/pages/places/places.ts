@@ -97,22 +97,24 @@ export class PlacesPage {
   }
 
   buildMap() {
-    let map_center = (this.user_location !== null) ? this.user_location : this.map_center_default;           
+    let loading = this.loadingCtrl.create({
+      content: 'Carregando mapa...'
+    });
+    loading.present();
+    let map_center = (this.user_location !== null) ? this.user_location : this.map_center_default;      
     this.map = leaflet.map('map', {
       center: map_center,
       zoom: 10
     });
-
     leaflet.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'DAE Recomenda - UFC SMD',
       maxzoom: 18,
       id: 'daerecomenda.places',
       accessToken: 'pk.eyJ1IjoiZmFsbWVpZGFjbyIsImEiOiJjam94Z3VueTIwdWlmM3ZvM25xMjh3enlnIn0.rr08D5uKKc-X9aJwxvviQQ'
     }).addTo(this.map);
-    
     if (this.user_location !== null) {
       let user_location_icon = leaflet.icon({
-          iconUrl: 'assets/imgs/icon-pin-user-location.png',
+          iconUrl: 'assets/imgs/icon-pin-user-location-2.png',
           iconSize: [38, 38],
           iconAnchor: [17, 38],
           popupAnchor: [0, -30]
@@ -121,7 +123,6 @@ export class PlacesPage {
         .bindPopup('<p>Esta é sua localização</p>')
         .addTo(this.map);
     }
-
     for (let i = 0; i < this.places.length; i = i + 1) {
       if (this.places[i].location.latlng !== null) {
         let marker = leaflet.marker(this.places[i].location.latlng);
@@ -135,7 +136,10 @@ export class PlacesPage {
         this.map_markers.push(marker);
       }
     }
-
+    setTimeout(() => {
+      this.map.invalidateSize();
+      loading.dismiss();
+    }, 400);
   }
 
   getUserCoordinates() {

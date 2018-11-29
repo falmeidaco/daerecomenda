@@ -45,6 +45,10 @@ export class PlacesPage {
       if (!this.map_ready) {
         this.buildMap();
         this.map_ready = true;
+      } else {
+        setTimeout(() => {
+          this.map.invalidateSize();
+        }, 400);
       }
     }
   }

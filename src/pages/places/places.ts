@@ -5,6 +5,7 @@ import { FiltersModalPage } from '../filters-modal/filters-modal';
 import { Place } from '../../providers/place-service/place';
 import { PlaceService } from '../../providers/place-service/place-service';
 import { Geolocation } from '@ionic-native/geolocation';
+import { Storage } from '@ionic/storage';
 import geolib from 'geolib';
 import leaflet from 'leaflet';
 
@@ -23,7 +24,7 @@ export class PlacesPage {
   map_markers: any[];
   map_center_default: any;
   user_location: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl:ModalController, public loadingCtrl: LoadingController, private geolocation:Geolocation) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl:ModalController, public loadingCtrl: LoadingController, private geolocation:Geolocation, private storage: Storage) {
     this.user_location = null;
     this.map_center_default = [-3.798484, -38.534546];
     this.placesServiceInstance = new PlaceService();
@@ -117,13 +118,12 @@ export class PlacesPage {
       accessToken: 'pk.eyJ1IjoiZmFsbWVpZGFjbyIsImEiOiJjam94Z3VueTIwdWlmM3ZvM25xMjh3enlnIn0.rr08D5uKKc-X9aJwxvviQQ'
     }).addTo(this.map);
     if (this.user_location !== null) {
-      let user_location_icon = leaflet.icon({
-          iconUrl: 'assets/imgs/icon-pin-user-location-2.png',
-          iconSize: [38, 38],
-          iconAnchor: [17, 38],
-          popupAnchor: [0, -30]
-      });
-      let user_location_market = leaflet.marker(this.user_location, {'icon': user_location_icon})
+      let user_location_market = leaflet.marker(this.user_location, {'icon': leaflet.icon({
+            iconUrl: 'assets/imgs/icon-pin-user-location-2.png',
+            iconSize: [38, 38],
+            iconAnchor: [17, 38],
+            popupAnchor: [0, -30]
+        })})
         .bindPopup('<p>Esta é sua localização</p>')
         .addTo(this.map);
     }
@@ -165,6 +165,17 @@ export class PlacesPage {
 
   ionViewDidLoad() {
     this.getUserCoordinates();
+  }
+
+  ionViewDidEnter() {
+    this.storage.get('selectedTabOrigin').then((val) => {
+      console.log('enter with: ', val);
+      if (val === 'help') {
+        this.openFiltersModal();
+        this.storage.set('selectedTabOrigin', '');
+      }
+      console.log('leav with: ', val);
+    });
   }
 
 }

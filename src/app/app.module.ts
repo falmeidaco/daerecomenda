@@ -12,6 +12,7 @@ import { PlacesModalPage } from '../pages/places-modal/places-modal';
 import { FiltersModalPage } from '../pages/filters-modal/filters-modal';
 import { AboutModalPage } from '../pages/about-modal/about-modal';
 import { Geolocation } from '@ionic-native/geolocation';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { Geolocation } from '@ionic-native/geolocation';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

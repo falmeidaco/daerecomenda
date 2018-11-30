@@ -51,10 +51,9 @@ export class PlaceService {
     this.tags = {
       gratuito: new PlaceTag('gratuito', 'Serviço gratuito'),
       pago: new PlaceTag('pago', 'Serviço pago'),
-      ligacaogratuita: new PlaceTag('ligacaogratuita', 'Número 0800'),
+      ligacaogratuita: new PlaceTag('ligacaogratuita', 'Ligaçao gratuita'),
       acessibilidade: new PlaceTag('acessibilidade', 'Possui acessibilidade'),
-      planohapvida: new PlaceTag('planohapvida', 'Plano Hapvida'),
-      planounimed: new PlaceTag('planounimed', 'Plano Unimed'),
+      planosaude: new PlaceTag('planosaude', 'Aceita Plano de Saúde'),
       aceitacartao: new PlaceTag('aceitacartao', 'Aceita cartão de crédito'),
       estacionamento: new PlaceTag('estacionamento', 'Possui estacionamento')
     }
@@ -73,12 +72,7 @@ export class PlaceService {
         ],
         tags:[
           this.tags.gratuito.name, 
-          this.tags.pago.name, 
-          this.tags.ligacaogratuita.name, 
           this.tags.acessibilidade.name, 
-          this.tags.planohapvida.name, 
-          this.tags.aceitacartao.name, 
-          this.tags.planounimed.name,
           this.tags.estacionamento.name
         ],
         location: {
@@ -105,22 +99,16 @@ export class PlaceService {
       }),
       new Place({
         id: 1,
-        name:'FIC',
+        name:'Clínica Escola de Psicologia - FIC/Estácio',
         description:'A Clínica Escola de Psicologia do Centro Universitário Estácio do Ceará oferece plantão psicológico gratuito, às quartas-feiras, das 8h às 11h, e às sextas-feiras, das 15h às 17h, sem necessidade de agendamento prévio. Esta modalidade de atendimento é indicada para pessoas em situações de urgência, que necessitam de auxílio para superar circunstâncias imediatas de crises psicoemocionais. Além dos plantões, a Clínica Escola de Psicologia da Estácio oferece consultas destinadas a crianças, adolescentes, adultos, idosos, casais e famílias. Dentre os tratamentos, estão a ludoterapia (psicoterapia infantil), orientação profissional, atendimentos individuais e grupais, além de rodas de conversas com grupos da terceira idade.',
         image: 'assets/imgs/places/default-place-image.png',
         categories:[
           this.categories.psicologico.name,
-          this.categories.psicopedagogico.name,
           this.categories.psicossocial.name
         ],
         tags:[
           this.tags.gratuito.name, 
-          this.tags.pago.name, 
-          this.tags.ligacaogratuita.name, 
           this.tags.acessibilidade.name, 
-          this.tags.planohapvida.name, 
-          this.tags.aceitacartao.name, 
-          this.tags.planounimed.name,
           this.tags.estacionamento.name
         ],
         location: {
@@ -144,17 +132,11 @@ export class PlaceService {
         image: 'assets/imgs/places/unifanor.jpg',
         categories:[
           this.categories.psicologico.name,
-          this.categories.psicopedagogico.name,
           this.categories.psicossocial.name
         ],
         tags:[
           this.tags.gratuito.name, 
-          this.tags.pago.name, 
-          this.tags.ligacaogratuita.name, 
           this.tags.acessibilidade.name, 
-          this.tags.planohapvida.name, 
-          this.tags.aceitacartao.name, 
-          this.tags.planounimed.name,
           this.tags.estacionamento.name
         ],
         location: {
@@ -172,10 +154,6 @@ export class PlaceService {
           {
             name:'website',
             value: 'https://www.wyden.com.br/unifanor/nis'
-          },
-          {
-            name:'email',
-            value: 'email@hotmail.com.com'
           }
         ]
       }),
@@ -191,12 +169,7 @@ export class PlaceService {
         ],
         tags:[
           this.tags.gratuito.name, 
-          this.tags.pago.name, 
-          this.tags.ligacaogratuita.name, 
           this.tags.acessibilidade.name, 
-          this.tags.planohapvida.name, 
-          this.tags.aceitacartao.name, 
-          this.tags.planounimed.name,
           this.tags.estacionamento.name
         ],
         location: {
@@ -214,10 +187,6 @@ export class PlaceService {
           {
             name:'website',
             value: 'https://www.uninassau.edu.br/tags/clinica-escola'
-          },
-          {
-            name:'email',
-            value: 'email@hotmail.com.com'
           }
         ]
       }),
@@ -247,10 +216,6 @@ export class PlaceService {
           {
             name:'phone',
             value: '85 3101-9981'
-          },
-          {
-            name:'website',
-            value: 'http://www.website.com'
           },
           {
             name:'email',
@@ -288,10 +253,6 @@ export class PlaceService {
           {
             name:'website',
             value: 'https://unichristus.edu.br/institucional/infraestrutura/clinica-escola-de-saude/'
-          },
-          {
-            name:'email',
-            value: 'email@hotmail.com.com'
           }
         ]
       }),
@@ -306,13 +267,10 @@ export class PlaceService {
           this.categories.psicossocial.name
         ],
         tags:[
-          this.tags.gratuito.name, 
           this.tags.pago.name, 
           this.tags.acessibilidade.name, 
-          this.tags.planohapvida.name, 
           this.tags.aceitacartao.name, 
-          this.tags.planounimed.name,
-          this.tags.estacionamento.name
+          this.tags.planosaude.name
         ],
         location: {
           full_address:'Rua Adolfo Moreira de Carvalho, 86 - Edson Queiroz',
@@ -350,9 +308,9 @@ export class PlaceService {
           this.categories.psicopedagogico.name,
         ],
         tags:[
-          this.tags.gratuito.name, 
+          this.tags.pago.name, 
           this.tags.acessibilidade.name, 
-          this.tags.planohapvida.name
+          this.tags.planosaude.name
         ],
         location: {
           full_address:'Rua Lauro Maia, 1245 - Bairro de Fátima',
@@ -388,8 +346,8 @@ export class PlaceService {
         ],
         tags:[
           this.tags.gratuito.name, 
-          this.tags.acessibilidade.name, 
-          this.tags.estacionamento.name
+          this.tags.acessibilidade.name,
+          this.tags.ligacaogratuita.name
         ],
         location: {
           full_address:'Rua Pinto Madeira, 1550',

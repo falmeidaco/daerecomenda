@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
@@ -9,7 +10,7 @@ export class HomePage {
 
   period: String;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
     //Set day salut
     let time_hour:number = new Date().getHours();
     if (time_hour >= 0 && time_hour < 12) {
@@ -21,8 +22,10 @@ export class HomePage {
     }
   }
 
-  switchTab(tabIndex: number) {
-    this.navCtrl.parent.select(tabIndex);
+  switchTab(tabIndex: number, origin:string) {
+    this.storage.set('selectedTabOrigin', origin).then(() =>{
+      this.navCtrl.parent.select(tabIndex);
+    });
   }
 
   ngOnInit() {

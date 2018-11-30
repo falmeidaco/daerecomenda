@@ -10,25 +10,25 @@
   
   <ion-list>
     
-    <ion-card (click)="switchTab(1)">
+    <ion-card (click)="switchTab(1, 'help')">
       <ion-card-content>
         <h2>Me ajude a encontrar um local de apoio</h2>
         <p>
-          Respondendo a algumas perguntas, vamos poder recomendar o lugar mais apropriado
+          Escolhendo os filtros de pesquisa vamos poder informar o lugar mais apropriado
         </p>
       </ion-card-content>
     </ion-card>
 
-    <ion-card (click)="switchTab(1)">
+    <ion-card (click)="switchTab(1, 'places')">
       <ion-card-content>
         <h2>Mostrar locais de apoio</h2>
         <p>
-          Encontre locais de apoio utilizando filtros de pesquisa
+          Acesse a lista completa de locais de apoio recomendados pela DAE
         </p>
       </ion-card-content>
     </ion-card>
     
-    <ion-card (click)="switchTab(2)">
+    <ion-card (click)="switchTab(2 , 'about')">
       <ion-card-content>
         <h2>Conhecer a DAE</h2>
         <p>
